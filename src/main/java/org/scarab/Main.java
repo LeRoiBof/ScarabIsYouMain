@@ -1,14 +1,18 @@
 package org.scarab;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseDragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
@@ -27,34 +31,32 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    private Stage primaryStage;
     private final BorderPane root = new BorderPane();
     private final VBox panel = new VBox();
-    private final Button play = new Button("PLAY");
-    private final Button quit = new Button("QUIT");
     private final Font titleFont = Font.font("Lucida Sans Unicode", FontWeight.BOLD,25);
-    
+    private final CustomButton play = new CustomButton("PLAY", titleFont);
+    private final CustomButton quit = new CustomButton("QUIT", titleFont);
+    private final CustomButton credits = new CustomButton("CREDITS", titleFont);
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage _primaryStage) throws Exception {
         ///Stage init
+        this.primaryStage = _primaryStage;
         primaryStage.setTitle("Scarab Is You");
         primaryStage.getIcons().add(new Image (new FileInputStream("src/main/resources/assets/menu/scarablogo.jpg")));
-        primaryStage.setMinHeight(760);
-        primaryStage.setMinWidth(1290);
-        primaryStage.setMaxHeight(760);
-        primaryStage.setMaxWidth(1290);
+        primaryStage.setMinHeight(720);
+        primaryStage.setMinWidth(1280);
+        primaryStage.setMaxHeight(720);
+        primaryStage.setMaxWidth(1280);
         root.setPadding(new Insets(20));
+        Scene scene = new Scene(root,1280,720);
+        scene.setFill(Color.TRANSPARENT);
 
         /// Button settings
-        play.setFont(titleFont);
-        play.setPrefSize(300,50);
-        play.setShape(new Polygon(100.0,0.0,200.0,0.0,170.0,30.0,70.0,30.0));
-        quit.setFont(titleFont);
-        quit.setPrefSize(300,50);
-        quit.setShape(new Polygon(100.0,0.0,200.0,0.0,170.0,30.0,70.0,30.0));
-        panel.getChildren().addAll(play,quit);
+        panel.setSpacing(10);
+        panel.getChildren().addAll(play,credits ,quit);
         panel.setAlignment(Pos.TOP_CENTER);
-        panel.setPadding(new Insets(50,0,50,0));
         root.setCenter(panel);
 
         ///Background settings
@@ -71,11 +73,63 @@ public class Main extends Application {
         BorderPane.setAlignment(titleView,Pos.CENTER);
         root.setTop(titleView);
 
+        //Event handler button
+        quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.close();
+            }
+        });
+        play.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                play.setOpacity(0.9);
+            }
+        });
+        play.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                play.setOpacity(0.7);
+            }
+        });
+        credits.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                credits.setOpacity(0.9);
+            }
+        });
+        credits.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                credits.setOpacity(0.7);
+            }
+        });
+        quit.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                quit.setOpacity(0.9);
+            }
+        });
+        quit.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                quit.setOpacity(0.7);
+            }
+        });
+        credits.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event){
+                try {
+                    primaryStage.setScene(new CreditsScene().getCredits());
+                }
+                catch (Exception e){
 
+                }
+            }
+        });
 
         ///Scene opening
-        Scene scene = new Scene(root,1290,760);
-        scene.setFill(Color.TRANSPARENT);
+
         primaryStage.setScene(scene);
         primaryStage.show();
 
