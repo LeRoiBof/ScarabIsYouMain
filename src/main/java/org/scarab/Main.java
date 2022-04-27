@@ -45,10 +45,7 @@ public class Main extends Application {
         this.primaryStage = _primaryStage;
         primaryStage.setTitle("Scarab Is You");
         primaryStage.getIcons().add(new Image (new FileInputStream("src/main/resources/assets/menu/scarablogo.jpg")));
-        primaryStage.setMinHeight(720);
-        primaryStage.setMinWidth(1280);
-        primaryStage.setMaxHeight(720);
-        primaryStage.setMaxWidth(1280);
+        primaryStage.setFullScreen(true);
         root.setPadding(new Insets(20));
         Scene scene = new Scene(root,1280,720);
         scene.setFill(Color.TRANSPARENT);
