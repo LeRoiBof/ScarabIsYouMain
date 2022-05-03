@@ -49,26 +49,12 @@ public class Main extends Application {
         root.setPadding(new Insets(20));
         Scene scene = new Scene(root,1280,720);
         scene.setFill(Color.TRANSPARENT);
+        try {
+            primaryStage.setScene(new MenuScene().getMenu());
+        }
+        catch (Exception e){
 
-        /// Button settings
-        panel.setSpacing(10);
-        panel.getChildren().addAll(play,credits ,quit);
-        panel.setAlignment(Pos.TOP_CENTER);
-        root.setCenter(panel);
-
-        ///Background settings
-        root.setBackground(new Background(
-                new BackgroundImage(
-                        new Image(new FileInputStream("src/main/resources/assets/menu/menu.png")),
-                        BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
-                        new BackgroundPosition(Side.LEFT,0,true,Side.BOTTOM,0,true),
-                        new BackgroundSize(BackgroundSize.AUTO,BackgroundSize.AUTO,true,true,false,true))));
-
-        ///Title settings
-        Image title = new Image(new FileInputStream("src/main/resources/assets/menu/menutitle.png"));
-        ImageView titleView = new ImageView(title);
-        BorderPane.setAlignment(titleView,Pos.CENTER);
-        root.setTop(titleView);
+        }
 
         //Event handler button
         quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -77,42 +63,7 @@ public class Main extends Application {
                 primaryStage.close();
             }
         });
-        play.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                play.setOpacity(0.9);
-            }
-        });
-        play.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                play.setOpacity(0.7);
-            }
-        });
-        credits.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                credits.setOpacity(0.9);
-            }
-        });
-        credits.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                credits.setOpacity(0.7);
-            }
-        });
-        quit.setOnMouseEntered(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                quit.setOpacity(0.9);
-            }
-        });
-        quit.setOnMouseExited(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                quit.setOpacity(0.7);
-            }
-        });
+
         credits.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event){

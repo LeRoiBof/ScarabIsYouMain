@@ -21,7 +21,6 @@ public class CreditsScene{
     private final Font titlefont = Font.font("Lucida Sans Unicode", FontWeight.BOLD,25);
     private final CustomButton back = new CustomButton("BACK",titlefont);
     public CreditsScene() throws Exception{
-        root.setPadding(new Insets(20));
         credits.setFill(Color.TRANSPARENT);
 
         back.setAlignment(Pos.BOTTOM_CENTER);
