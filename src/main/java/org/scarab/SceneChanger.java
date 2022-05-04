@@ -2,32 +2,16 @@ package org.scarab;
 
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 public class SceneChanger {
-    MenuScene menuScene;
 
-    {
-        try {
-            menuScene = new MenuScene();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    CreditsScene creditsScene;
-
-    {
-        try {
-            creditsScene = new CreditsScene();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    private Stage primaryStage;
-
-    public enum enumScene {MENU,CREDITS}
+    public enum enumScene {MENU,CREDITS,SETTINGS}
     public static void changeTo(enumScene enums){
         switch(enums){
-            /*** case MENU -> ***/
+             case MENU -> Main.primaryStage.setScene(Main.menuScene);
+            case CREDITS -> Main.primaryStage.setScene(Main.creditsScene);
+            case SETTINGS -> Main.primaryStage.setScene(Main.settingsScene);
         }
 
     }

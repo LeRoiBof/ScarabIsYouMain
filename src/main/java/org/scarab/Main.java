@@ -25,19 +25,22 @@ import javafx.stage.Window;
 
 import javax.imageio.stream.FileImageInputStream;
 import java.io.FileInputStream;
+import java.util.Set;
 
 public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
     }
-    private Stage primaryStage;
+    public static Stage primaryStage;
     private final BorderPane root = new BorderPane();
-    private final VBox panel = new VBox();
     private final Font titleFont = Font.font("Lucida Sans Unicode", FontWeight.BOLD,25);
     private final CustomButton play = new CustomButton("PLAY", titleFont);
     private final CustomButton quit = new CustomButton("QUIT", titleFont);
     private final CustomButton credits = new CustomButton("CREDITS", titleFont);
+    static MenuScene menuScene = new MenuScene();
+    static CreditsScene creditsScene = new CreditsScene();
+    static SettingsScene settingsScene = new SettingsScene();
 
     @Override
     public void start(Stage _primaryStage) throws Exception {
@@ -46,39 +49,14 @@ public class Main extends Application {
         primaryStage.setTitle("Scarab Is You");
         primaryStage.getIcons().add(new Image (new FileInputStream("src/main/resources/assets/menu/scarablogo.jpg")));
         primaryStage.setFullScreen(true);
+        primaryStage.setWidth(1280);
+        primaryStage.setHeight(720);
         root.setPadding(new Insets(20));
-        Scene scene = new Scene(root,1280,720);
-        scene.setFill(Color.TRANSPARENT);
-        try {
-            primaryStage.setScene(new MenuScene().getMenu());
-        }
-        catch (Exception e){
 
-        }
-
-        //Event handler button
-        quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                primaryStage.close();
-            }
-        });
-
-        credits.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event){
-                try {
-                    primaryStage.setScene(new CreditsScene().getCredits());
-                }
-                catch (Exception e){
-
-                }
-            }
-        });
 
         ///Scene opening
 
-        primaryStage.setScene(scene);
+        primaryStage.setScene(menuScene);
         primaryStage.show();
 
     }

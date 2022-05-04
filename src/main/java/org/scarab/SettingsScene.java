@@ -1,7 +1,6 @@
-package org.scarab;
+ package org.scarab;
 
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Scene;
@@ -9,23 +8,24 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class CreditsScene extends Scene{
+
+ public class SettingsScene extends Scene {
     private final static BorderPane root = new BorderPane();
     private final Font titlefont = Font.font("Lucida Sans Unicode", FontWeight.BOLD,25);
     private final CustomButton back = new CustomButton("BACK",titlefont);
-    public CreditsScene(){
+    private final VBox panel = new VBox();
+    public SettingsScene(){
         super(root);
-
-        back.setAlignment(Pos.BOTTOM_CENTER);
-        root.setBottom(back);
-
+        panel.setSpacing(10);
+        panel.getChildren().addAll(back);
+        panel.setAlignment(Pos.TOP_CENTER);
+        root.setCenter(panel);
         try {
             root.setBackground(new Background(
                     new BackgroundImage(
@@ -44,7 +44,7 @@ public class CreditsScene extends Scene{
             e.printStackTrace();
         }
         ImageView titleView = new ImageView(title);
-        BorderPane.setAlignment(titleView,Pos.CENTER);
+        BorderPane.setAlignment(titleView, Pos.CENTER);
         root.setTop(titleView);
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
