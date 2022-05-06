@@ -21,7 +21,8 @@ public class Map
 
         try
         {
-            File MyMap = new File("src/main/resources/maps/map.txt");                   // lecture du fichier map
+            System.getProperty("user.dir");
+            File MyMap = new File("src/main/resources/maps/maps.txt");                   // lecture du fichier map
             Scanner Lecture = new Scanner(MyMap);
             String FirstLine = Lecture.nextLine();                       //lis la premiere ligne qui est la taille de la map
             String[] superficieMap = FirstLine.split(" ");

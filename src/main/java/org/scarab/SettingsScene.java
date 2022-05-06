@@ -19,13 +19,12 @@ import java.io.FileNotFoundException;
     private final static BorderPane root = new BorderPane();
     private final Font titlefont = Font.font("Lucida Sans Unicode", FontWeight.BOLD,25);
     private final CustomButton back = new CustomButton("BACK",titlefont);
-    private final CustomButton fullscreen = new CustomButton("SET ON FULLSCREEN",titlefont);
     private final VBox panel = new VBox();
     public SettingsScene(){
         super(root);
-        final int[] counter = {0};
+        final boolean[] counter = {false};
         panel.setSpacing(10);
-        panel.getChildren().addAll(fullscreen,back);
+        panel.getChildren().addAll(back);
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
         try {
@@ -52,20 +51,6 @@ import java.io.FileNotFoundException;
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.MENU);
-            }
-        });
-        fullscreen.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (counter[0] ==0){
-                    Main.primaryStage.setFullScreen(true);
-                    fullscreen.setText("UNSET FULLSCREEN");
-                }
-                else{
-                    Main.primaryStage.setFullScreen(false);
-                    fullscreen.setText("SET ON FULLSCREEN");
-                    counter[0] = 0;
-                }
             }
         });
 
