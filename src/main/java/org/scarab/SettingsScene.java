@@ -23,7 +23,7 @@ import java.io.FileNotFoundException;
     private final VBox panel = new VBox();
     public SettingsScene(){
         super(root);
-        int counter = 0;
+        final int[] counter = {0};
         panel.setSpacing(10);
         panel.getChildren().addAll(fullscreen,back);
         panel.setAlignment(Pos.TOP_CENTER);
@@ -57,13 +57,14 @@ import java.io.FileNotFoundException;
         fullscreen.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (counter==0){
+                if (counter[0] ==0){
                     Main.primaryStage.setFullScreen(true);
                     fullscreen.setText("UNSET FULLSCREEN");
                 }
                 else{
-
+                    Main.primaryStage.setFullScreen(false);
                     fullscreen.setText("SET ON FULLSCREEN");
+                    counter[0] = 0;
                 }
             }
         });

@@ -41,6 +41,7 @@ public class Main extends Application {
     static MenuScene menuScene = new MenuScene();
     static CreditsScene creditsScene = new CreditsScene();
     static SettingsScene settingsScene = new SettingsScene();
+    static GameScene gameScene = new GameScene();
 
     @Override
     public void start(Stage _primaryStage) throws Exception {

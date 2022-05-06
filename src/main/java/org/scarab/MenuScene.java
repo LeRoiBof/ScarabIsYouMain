@@ -72,5 +72,11 @@ public class MenuScene extends Scene {
                 SceneChanger.changeTo(SceneChanger.enumScene.SETTINGS);
             }
         });
+        play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
+            }
+        });
     }
 }
