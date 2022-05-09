@@ -2,10 +2,6 @@
 
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.geometry.Side;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
@@ -13,46 +9,57 @@ import javafx.scene.text.FontWeight;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Random;
 
 
- public class SettingsScene extends Scene {
+ public class SettingsScene extends MenuConstructor {
     private final static BorderPane root = new BorderPane();
-    private final Font titlefont = Font.font("Lucida Sans Unicode", FontWeight.BOLD,25);
-    private final CustomButton back = new CustomButton("BACK",titlefont);
+    private final CustomButton back = new CustomButton("BACK");
+    private final CustomButton changeMusic = new CustomButton("CHANGE MUSIC");
     private final VBox panel = new VBox();
+    private final Random random = new Random();
+    private int randomNumber = random.nextInt(5);
     public SettingsScene(){
-        super(root);
-        final boolean[] counter = {false};
+        super();
         panel.setSpacing(10);
         panel.getChildren().addAll(back);
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
-        try {
-            root.setBackground(new Background(
-                    new BackgroundImage(
-                            new Image(new FileInputStream("src/main/resources/assets/menu/menu.png")),
-                            BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
-                            new BackgroundPosition(Side.LEFT,0,true,Side.BOTTOM,0,true),
-                            new BackgroundSize(BackgroundSize.AUTO,BackgroundSize.AUTO,true,true,false,true))));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        Image title = null;
-        try {
-            title = new Image(new FileInputStream("src/main/resources/assets/menu/menutitle.png"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ImageView titleView = new ImageView(title);
-        BorderPane.setAlignment(titleView, Pos.CENTER);
-        root.setTop(titleView);
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.MENU);
             }
         });
+
+        changeMusic.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                switch (randomNumber){
+                    case 0: {
+                        String path = "src/main/resources/music/menu" + 1 + ".mp3";
+                        MenuConstructor.changeMusic(path);
+                    }
+                    case 1: {
+                        String path = "src/main/resources/music/menu" + 2 + ".mp3";
+                        MenuConstructor.changeMusic(path);
+                    }
+                    case 2: {
+                        String path = "src/main/resources/music/menu" + 3 + ".mp3";
+                        MenuConstructor.changeMusic(path);
+                    }
+                    case 3: {
+                        String path = "src/main/resources/music/menu" + 4 + ".mp3";
+                        MenuConstructor.changeMusic(path);
+                    }
+                    case 4: {
+                        String path = "src/main/resources/music/menu" + 5 + ".mp3";
+                        MenuConstructor.changeMusic(path);
+                    }
+                }
+            }
+        });
+
 
     }
 }

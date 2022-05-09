@@ -10,7 +10,8 @@ import javafx.scene.text.FontWeight;
 
 
 public class CustomButton extends Button {
-        public CustomButton (String name, Font titleFont){
+        private final Font titleFont = Font.font("Lucida Sans Unicode", FontWeight.BOLD,25);
+        public CustomButton (String name){
         super(name);
         setFont(titleFont);
         setPrefSize(300,50);

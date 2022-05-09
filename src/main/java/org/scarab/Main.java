@@ -23,6 +23,7 @@ public class Main extends Application {
     static CreditsScene creditsScene = new CreditsScene();
     static SettingsScene settingsScene = new SettingsScene();
     static GameScene gameScene = new GameScene();
+    static String path = "src/main/resources/music/menu.mp3";
 
     public static void main(String[] args) {
         launch(args);
@@ -35,11 +36,6 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image (new FileInputStream("src/main/resources/assets/menu/scarablogo.jpg")));
         primaryStage.setWidth(1280);
         primaryStage.setHeight(720);
-        Media media = new Media(new File("src/main/resources/music/menu.mp3").toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.setVolume(0.1);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         root.setPadding(new Insets(20));
 
