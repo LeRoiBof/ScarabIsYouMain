@@ -2,6 +2,7 @@ package org.scarab;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Side;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
@@ -11,6 +12,7 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class Main extends Application {
 
@@ -27,7 +29,7 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage _primaryStage) throws Exception {
-        ///Stage init
+        //Stage init
         primaryStage = _primaryStage;
         primaryStage.setTitle("Scarab Is You");
         primaryStage.getIcons().add(new Image (new FileInputStream("src/main/resources/assets/menu/scarablogo.jpg")));
@@ -41,8 +43,19 @@ public class Main extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         root.setPadding(new Insets(20));
 
+        try {
+            root.setBackground(new Background(
+                    new BackgroundImage(
+                            new Image(new FileInputStream("src/main/resources/assets/menu/menu.png")),
+                            BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                            new BackgroundPosition(Side.LEFT, 0, true, Side.BOTTOM, 0, true),
+                            new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true, true, false, true))));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
-        ///Scene opening
+
+        //Scene opening
 
         primaryStage.setScene(menuScene);
         primaryStage.show();
