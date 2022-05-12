@@ -20,7 +20,7 @@ public class CreditsScene extends MenuConstructor{
     private final static BorderPane root = new BorderPane();
     private final CustomButton back = new CustomButton("BACK");
     public CreditsScene(){
-        super();
+        super(root);
         back.setAlignment(Pos.BOTTOM_CENTER);
         root.setBottom(back);
 

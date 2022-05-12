@@ -22,7 +22,7 @@ public class MenuScene extends MenuConstructor {
     private final CustomButton credits = new CustomButton("CREDITS");
     private final CustomButton settings = new CustomButton("SETTINGS");
     public MenuScene() {
-        super();
+        super(root);
         /// Button settings
         panel.setSpacing(10);
         panel.getChildren().addAll(play, credits, settings,quit);

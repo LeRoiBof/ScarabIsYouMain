@@ -14,9 +14,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class MenuConstructor extends Scene {
-    private final static BorderPane root = new BorderPane();
     private String path = "src/main/resources/music/menu.mp3";
-    public MenuConstructor(){
+    public MenuConstructor(BorderPane root){
         super(root);
         try {
             root.setBackground(new Background(

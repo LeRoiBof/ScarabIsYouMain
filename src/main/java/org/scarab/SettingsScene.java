@@ -20,7 +20,7 @@ import java.util.Random;
     private final Random random = new Random();
     private int randomNumber = random.nextInt(5);
     public SettingsScene(){
-        super();
+        super(root);
         panel.setSpacing(10);
         panel.getChildren().addAll(back);
         panel.setAlignment(Pos.TOP_CENTER);
