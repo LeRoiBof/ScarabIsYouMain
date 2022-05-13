@@ -29,30 +29,24 @@ public class Map
             map_height = Integer.parseInt(superficieMap[1]);
             grid = new Grille(map_width, map_height);
 
-            while(Lecture.hasNextLine())
-            {
+            while(Lecture.hasNextLine()) {
                 String data = Lecture.nextLine();                         // lecture des elements ligne par ligne
                 String[] obj = data.split(" ");
                 Elements element = null;
-                if(obj[0].equals("is"))
-                {
+                if (obj[0].equals("is")) {
                     element = new Is(obj[0], Integer.parseInt(obj[1]), Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
 
+                } else if (obj[0].length() > 5 && obj[0].substring(0, 5).equals("text_")) {
+                    element = new Texts(obj[0], Integer.parseInt(obj[1]), Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
+                } else if (obj[0].equals("rock") || obj[0].equals("wall") || obj[0].equals("lava") || obj[0].equals("water") || obj[0].equals("baba") || obj[0].equals("flag") || obj[0].equals("skull")) {
+                    element = new Material(obj[0], Integer.parseInt(obj[1]), Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
+                } else if (obj[0].equals("you") || obj[0].equals("win") || obj[0].equals("stop") || obj[0].equals("push") || obj[0].equals("hot")) {
+                    element = new Action(obj[0], Integer.parseInt(obj[1]), Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
                 }
-                else if (obj[0].length() > 5 && obj[0].substring(0, 5).equals("text_"))
-                {
-                    element = new Texts(obj[0],Integer.parseInt(obj[1]),Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
+                if (element != null) {
+                    grid.addElementAtPos(element.getPosX(), element.getPosY(), element);
+                    AllElements.add(element);     // ajoute chaque elements dans le tableau afin de sauvgarder les entities
                 }
-                else if (obj[0].equals("rock") ||obj[0].equals("wall")||obj[0].equals("lava")||obj[0].equals("water")||obj[0].equals("baba")||obj[0].equals("flag")||obj[0].equals("skull"))
-                {
-                    element = new Material(obj[0],Integer.parseInt(obj[1]),Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
-                }
-                else if (obj[0].equals("you")|| obj[0].equals("win")||obj[0].equals("stop")||obj[0].equals("push")||obj[0].equals("hot"))
-                {
-                    element = new Action(obj[0],Integer.parseInt(obj[1]),Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
-                }
-                grid.addElementAtPos(element.getPosX(), element.getPosY(), element);
-                AllElements.add(element);     // ajoute chaque elements dans le tableau afin de sauvgarder les entities
             }
             Lecture.close();
         }

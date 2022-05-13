@@ -1,6 +1,10 @@
 package org.scarab;
 
+import javafx.geometry.Insets;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import org.scarab.Elements.Elements;
 import org.scarab.Elements.Rules;
 import javafx.scene.Group;
@@ -19,7 +23,7 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
     public GameScene() {
         super(root, 600, 600);
         Group test = new Group();
-
+        root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         for (int i = 0; i < map1.getAllElements().size(); i++) {
             test.getChildren().add(map1.getAllElements().get(i).getImageView());
             map1.getAllElements().get(i).getImageView().setTranslateX(map1.getAllElements().get(i).getPosX() * 40);

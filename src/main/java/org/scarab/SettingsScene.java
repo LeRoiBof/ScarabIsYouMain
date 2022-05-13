@@ -18,11 +18,10 @@ import java.util.Random;
     private final CustomButton changeMusic = new CustomButton("CHANGE MUSIC");
     private final VBox panel = new VBox();
     private final Random random = new Random();
-    private int randomNumber = random.nextInt(5);
     public SettingsScene(){
         super(root);
         panel.setSpacing(10);
-        panel.getChildren().addAll(back);
+        panel.getChildren().addAll(changeMusic,back);
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -35,26 +34,34 @@ import java.util.Random;
         changeMusic.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                Random random = new Random();
+                int randomNumber = random.nextInt(5);
+                System.out.println(randomNumber);
                 switch (randomNumber){
                     case 0: {
                         String path = "src/main/resources/music/menu" + 1 + ".mp3";
                         MenuConstructor.changeMusic(path);
+                        break;
                     }
                     case 1: {
                         String path = "src/main/resources/music/menu" + 2 + ".mp3";
                         MenuConstructor.changeMusic(path);
+                        break;
                     }
                     case 2: {
                         String path = "src/main/resources/music/menu" + 3 + ".mp3";
                         MenuConstructor.changeMusic(path);
+                        break;
                     }
                     case 3: {
                         String path = "src/main/resources/music/menu" + 4 + ".mp3";
                         MenuConstructor.changeMusic(path);
+                        break;
                     }
                     case 4: {
                         String path = "src/main/resources/music/menu" + 5 + ".mp3";
                         MenuConstructor.changeMusic(path);
+                        break;
                     }
                 }
             }
