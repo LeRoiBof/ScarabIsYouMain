@@ -2,7 +2,6 @@ package org.scarab;
 import org.scarab.Elements.*;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ public class Map
     private int map_width;
     private int map_height;
 
-    private Grille grid;
+    private Grid grid;
 
     private ArrayList<Elements> AllElements = new ArrayList<Elements>();
 
@@ -27,7 +26,7 @@ public class Map
             String[] superficieMap = FirstLine.split(" ");
             map_width = Integer.parseInt(superficieMap[0]);
             map_height = Integer.parseInt(superficieMap[1]);
-            grid = new Grille(map_width, map_height);
+            grid = new Grid(map_width, map_height);
 
             while(Lecture.hasNextLine()) {
                 String data = Lecture.nextLine();                         // lecture des elements ligne par ligne
@@ -61,7 +60,7 @@ public class Map
         return AllElements;
     }
 
-    public Grille getGrid() {
+    public Grid getGrid() {
         return grid;
     }
 }

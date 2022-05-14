@@ -1,12 +1,10 @@
 package org.scarab.Elements;
 
-import org.scarab.Grille;
+import org.scarab.Grid;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -35,7 +33,7 @@ public class Elements
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
     }
 
-    public boolean move(KeyCode key, Grille grid)
+    public boolean move(KeyCode key, Grid grid)
     {
         boolean Success = true;
 

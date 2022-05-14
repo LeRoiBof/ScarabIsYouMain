@@ -1,13 +1,13 @@
 package org.scarab.Elements;
 
-import org.scarab.Grille;
+import org.scarab.Grid;
 import org.scarab.Map;
 
 public class Rules
 {
     public static void updaterules(Map map)
     {
-        Grille grid = map.getGrid();
+        Grid grid = map.getGrid();
         for(Elements i : grid.getArrayIs())
         {
            for( Elements leftelem : grid.getElementsAtPos(i.getPosX()-1, i.getPosY()))
