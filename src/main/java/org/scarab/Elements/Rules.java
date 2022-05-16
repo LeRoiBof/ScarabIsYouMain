@@ -5,6 +5,15 @@ import org.scarab.Map;
 
 public class Rules
 {
+    public static boolean checklose(Map map) {
+        for (Elements def : map.getAllElements())
+            if (def.getIsYou())
+                return false;
+        return true;
+
+
+
+    }
     public static void updaterules(Map map)
     {
         Grid grid = map.getGrid();
@@ -48,6 +57,14 @@ public class Rules
                                        textelem.setIsWin(true);
                                    else
                                        textelem.setIsWin(false);
+                           }
+                           else if (rightelem.getName().equals("sink"))
+                           {
+                               for (Elements textelem : map.getAllElements())
+                                   if(textelem.getName().equals(((Texts)leftelem).getRef()))
+                                       textelem.setIsSink(true);
+                                   else
+                                       textelem.setIsSink(false);
                            }
 
                        }
