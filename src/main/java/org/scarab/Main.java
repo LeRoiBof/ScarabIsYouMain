@@ -20,10 +20,8 @@ public class Main extends Application {
     public static Stage primaryStage;
     private final BorderPane root = new BorderPane();
     static MenuScene menuScene = new MenuScene();
-    static CreditsScene creditsScene = new CreditsScene();
     static SettingsScene settingsScene = new SettingsScene();
     static GameScene gameScene = new GameScene();
-    static String path = "src/main/resources/music/menu.mp3";
 
     public static void main(String[] args) {
         launch(args);

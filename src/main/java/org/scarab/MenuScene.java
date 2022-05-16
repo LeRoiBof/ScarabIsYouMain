@@ -19,23 +19,16 @@ public class MenuScene extends MenuConstructor {
     private final VBox panel = new VBox();
     private final CustomButton play = new CustomButton("PLAY");
     private final CustomButton quit = new CustomButton("QUIT");
-    private final CustomButton credits = new CustomButton("CREDITS");
     private final CustomButton settings = new CustomButton("SETTINGS");
     public MenuScene() {
         super(root);
         /// Button settings
         panel.setSpacing(10);
-        panel.getChildren().addAll(play, credits, settings,quit);
+        panel.getChildren().addAll(play, settings,quit);
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
 
         //Event handler
-        credits.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                SceneChanger.changeTo(SceneChanger.enumScene.CREDITS);
-            }
-        });
         quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

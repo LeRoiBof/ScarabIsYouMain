@@ -21,7 +21,7 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
     private final static BorderPane root = new BorderPane();
     Map map1 = new Map();
     public GameScene() {
-        super(root, 700, 700);
+        super(root, 1000, 1000);
         Group test = new Group();
         root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         for (int i = 0; i < map1.getAllElements().size(); i++) {

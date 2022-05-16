@@ -17,6 +17,7 @@ import java.util.Random;
     private final CustomButton back = new CustomButton("BACK");
     private final CustomButton changeMusic = new CustomButton("CHANGE MUSIC");
     private final CustomButton stopMusic = new CustomButton("STOP MUSIC");
+    private static int count = 0;
     private final VBox panel = new VBox();
     private final Random random = new Random();
     public SettingsScene(){
@@ -70,9 +71,19 @@ import java.util.Random;
         stopMusic.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                MenuConstructor.stopMusic();
+                if (count == 0) {
+                    MenuConstructor.stopMusic();
+                    stopMusic.setText("REPLAY");
+                    count+=1;
+                }
+                else {
+                    MenuConstructor.replayMusic();
+                    stopMusic.setText("STOP MUSIC");
+                    count = 0;
+                }
             }
         });
+
 
 
     }

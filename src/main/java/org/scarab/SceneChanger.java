@@ -8,9 +8,6 @@ public class SceneChanger {
             case MENU:
                 Main.primaryStage.setScene(Main.menuScene);
                 break;
-            case CREDITS:
-                Main.primaryStage.setScene(Main.creditsScene);
-                break;
             case SETTINGS:
                 Main.primaryStage.setScene(Main.settingsScene);
                 break;
