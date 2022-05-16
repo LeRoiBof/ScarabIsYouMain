@@ -21,10 +21,11 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
     private final static BorderPane root = new BorderPane();
     Map map1 = new Map();
     public GameScene() {
-        super(root, 600, 600);
+        super(root, 700, 700);
         Group test = new Group();
         root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         for (int i = 0; i < map1.getAllElements().size(); i++) {
+            System.out.println(map1.getAllElements().get(i).getName());
             test.getChildren().add(map1.getAllElements().get(i).getImageView());
             map1.getAllElements().get(i).getImageView().setTranslateX(map1.getAllElements().get(i).getPosX() * 40);
             map1.getAllElements().get(i).getImageView().setTranslateY(map1.getAllElements().get(i).getPosY() * 40);
@@ -44,10 +45,13 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
             }
         }
         for (Elements elementstomove: map1.getAllElements()) {
-            elementstomove.setIsPush(false);
-            elementstomove.setIsYou(false);
-            elementstomove.setIsWin(false);
-            elementstomove.setIsStop(false);
+            if (!elementstomove.getName().equals("border")) {
+                elementstomove.setIsPush(false);
+                elementstomove.setIsYou(false);
+                elementstomove.setIsWin(false);
+                elementstomove.setIsStop(false);
+
+            }
         }
 
     }

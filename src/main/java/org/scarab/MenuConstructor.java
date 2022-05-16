@@ -51,4 +51,7 @@ public class MenuConstructor extends Scene {
         menuMedia.setCycleCount(MediaPlayer.INDEFINITE);
         menuMedia.setVolume(0.1);
     }
+    public static void stopMusic(){
+        menuMedia.stop();
+    }
 }

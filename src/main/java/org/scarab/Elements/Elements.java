@@ -31,7 +31,11 @@ public class Elements
         this.posY = posY;
         this.direction = direction;
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
+        if (name.equals("border")){
+            this.setIsStop(true);
+        }
     }
+
 
     public boolean move(KeyCode key, Grid grid)
     {

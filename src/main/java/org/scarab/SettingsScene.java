@@ -16,12 +16,13 @@ import java.util.Random;
     private final static BorderPane root = new BorderPane();
     private final CustomButton back = new CustomButton("BACK");
     private final CustomButton changeMusic = new CustomButton("CHANGE MUSIC");
+    private final CustomButton stopMusic = new CustomButton("STOP MUSIC");
     private final VBox panel = new VBox();
     private final Random random = new Random();
     public SettingsScene(){
         super(root);
         panel.setSpacing(10);
-        panel.getChildren().addAll(changeMusic,back);
+        panel.getChildren().addAll(changeMusic,stopMusic,back);
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -64,6 +65,12 @@ import java.util.Random;
                         break;
                     }
                 }
+            }
+        });
+        stopMusic.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                MenuConstructor.stopMusic();
             }
         });
 

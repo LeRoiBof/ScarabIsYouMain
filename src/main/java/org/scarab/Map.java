@@ -24,9 +24,9 @@ public class Map
             Scanner Lecture = new Scanner(MyMap);
             String FirstLine = Lecture.nextLine();                       //lis la premiere ligne qui est la taille de la map
             String[] superficieMap = FirstLine.split(" ");
-            map_width = Integer.parseInt(superficieMap[0]);
-            map_height = Integer.parseInt(superficieMap[1]);
-            grid = new Grid(map_width, map_height);
+            map_width = Integer.parseInt(superficieMap[0]) + 2;
+            map_height = Integer.parseInt(superficieMap[1]) + 2;
+            grid = new Grid(map_width, map_height, this);
 
             while(Lecture.hasNextLine()) {
                 String data = Lecture.nextLine();                         // lecture des elements ligne par ligne

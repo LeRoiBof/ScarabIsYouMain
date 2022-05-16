@@ -1,5 +1,4 @@
 18 18
-text_baba 3 4
 text_wall 4 4
 is 5 4
 stop 6 4
@@ -18,7 +17,6 @@ wall 11 6
 wall 12 6
 wall 13 6
 wall 14 6
-baba 1 8 3
 flag 12 8 1
 rock 8 7 0
 rock 8 8 2
@@ -41,6 +39,7 @@ you 6 12
 text_flag 11 12
 is 12 12
 win 13 12
+baba 1 8 3
 
 
 
