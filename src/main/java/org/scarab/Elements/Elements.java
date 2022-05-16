@@ -20,6 +20,8 @@ public class Elements
     protected boolean IsPush = false;
     protected boolean IsStop = false;
 
+    protected boolean IsSink = false;
+
     protected boolean Win = false;
 
     protected ImageView imageView;
@@ -99,6 +101,10 @@ public class Elements
     public boolean IsWin() {return Win;}
 
     public void setIsWin(boolean win) {Win = win;}
+
+    public boolean getIsSink() {return IsSink;}
+
+    public void setIsSink(boolean sink) {this.IsSink = sink;}
 
     public ImageView getImageView() {return imageView;}
 }
