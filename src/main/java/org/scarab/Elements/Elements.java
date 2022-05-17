@@ -20,6 +20,7 @@ public class Elements
     protected boolean IsPush = false;
     protected boolean IsStop = false;
 
+    protected boolean IsHot = false;
     protected boolean IsSink = false;
 
     protected boolean Win = false;
@@ -98,13 +99,21 @@ public class Elements
     public boolean getIsStop() {return IsStop;}
     public void setIsStop(boolean stop) {IsStop = stop;}
 
-    public boolean IsWin() {return Win;}
+    public boolean getIsWin() {return Win;}
 
     public void setIsWin(boolean win) {Win = win;}
 
     public boolean getIsSink() {return IsSink;}
 
     public void setIsSink(boolean sink) {this.IsSink = sink;}
+
+    public boolean getIsHot() {
+        return IsHot;
+    }
+
+    public void setLava(boolean Hot) {
+        IsHot = Hot;
+    }
 
     public ImageView getImageView() {return imageView;}
 }

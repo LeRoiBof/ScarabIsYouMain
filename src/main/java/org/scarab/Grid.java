@@ -35,7 +35,7 @@ public class Grid
                 map.getAllElements().add(newElem);
             }
             for (int i = 0; i < height; i++) {
-                Elements newElem = new Material("border", width-1, i, 0);
+                Elements newElem = new Material("border", width -1, i, 0);
                 this.addElementAtPos(width-1, i, newElem);
                 map.getAllElements().add(newElem);
             }
