@@ -5,15 +5,45 @@ import org.scarab.Map;
 
 public class Rules
 {
-    public static boolean checklose(Map map) {
-        for (Elements def : map.getAllElements())
-            if (def.getIsYou())
-                return false;
-        return true;
+    public static int check(Map map)
+    {
+       for(int i = 0; i < map.getMap_height();i++)
+       {
+           for(int j = 0; j < map.getMap_width(); j++)
+           {
+               boolean sink = false;
+               boolean hot = false;
+               boolean win = false;
+               boolean you = false;
+             for(Elements e : map.getGrid().getElementsAtPos(i,j))
+             {
+                 if(e.getIsSink())
+                     sink = true;
+                 if(e.getIsHot())
+                    hot = true;
+                 if(e.getIsYou())
+                    you = true;
+                 if(e.getIsWin())
+                    win = true;
+             }
+             if (!you)
+                 return 3;
+             if (win && you){
+                 return 0;
+             }
+             if(sink && you) {
+                 return 1;
+             }
+             if(hot && you) {
+                 return 2;
+               }
 
-
-
+           }
+       }
+       return 4;
     }
+
+
     public static void updaterules(Map map)
     {
         Grid grid = map.getGrid();

@@ -3,6 +3,8 @@ import org.scarab.Elements.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,12 +17,12 @@ public class Map
 
     private ArrayList<Elements> AllElements = new ArrayList<Elements>();
 
-    public Map()
+    public Map(String path)
     {
 
         try
         {
-            File MyMap = new File("src/main/resources/maps/map.txt");                   // lecture du fichier map
+            File MyMap = new File(path);                   // lecture du fichier map
             Scanner Lecture = new Scanner(MyMap);
             String FirstLine = Lecture.nextLine();                       //lis la premiere ligne qui est la taille de la map
             String[] superficieMap = FirstLine.split(" ");
@@ -54,7 +56,25 @@ public class Map
             System.out.println("une erreur est détectée");
             e.printStackTrace();
         }
+
     }
+    public void save()
+    {
+        try {
+            FileWriter savemap = new FileWriter("Save/save1.txt");
+            savemap.write(map_width + " " + map_height);
+            for (Elements e : getAllElements())
+                savemap.write(e.getName() + " " + e.getPosX() + " " + e.getPosY() + e.getDirection());
+        }
+        catch (IOException e){
+            System.out.println("an error is detected");
+            e.printStackTrace();
+        }
+    }
+
+    public int getMap_height() {return map_height;}
+    public int getMap_width(){return map_width;}
+
 
     public ArrayList<Elements> getAllElements() {
         return AllElements;
