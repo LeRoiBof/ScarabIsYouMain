@@ -51,7 +51,7 @@ public class Map
         }
         catch(FileNotFoundException e )
         {
-            System.out.println("une erreur est détectée");
+            System.out.println("File not found");
             e.printStackTrace();
         }
     }
