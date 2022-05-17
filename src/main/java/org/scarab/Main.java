@@ -22,6 +22,7 @@ public class Main extends Application {
     static MenuScene menuScene = new MenuScene();
     static SettingsScene settingsScene = new SettingsScene();
     static GameScene gameScene = new GameScene();
+    static PauseScene pauseScene = new PauseScene();
 
     public static void main(String[] args) {
         launch(args);
