@@ -9,6 +9,7 @@ import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.text.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,6 +18,7 @@ import java.io.FileNotFoundException;
 public class MenuConstructor extends Scene {
     private String path = "src/main/resources/music/menu1.mp3";
     private static MediaPlayer menuMedia = null;
+    private static Media temp;
     public MenuConstructor(BorderPane root){
         super(root);
         changeMusic(path);
@@ -29,6 +31,7 @@ public class MenuConstructor extends Scene {
         mediaView.setFitWidth(1280);
 
         root.getChildren().add(mediaView);
+
 
         ///Title settings
         Image title = null;
@@ -52,6 +55,14 @@ public class MenuConstructor extends Scene {
         menuMedia.setVolume(0.1);
     }
     public static void stopMusic(){
+        temp = menuMedia.getMedia();
         menuMedia.stop();
+    }
+    public static void replayMusic(){
+        menuMedia = new MediaPlayer(temp);
+        menuMedia.setAutoPlay(true);
+        menuMedia.setCycleCount(MediaPlayer.INDEFINITE);
+        menuMedia.setVolume(0.1);
+
     }
 }

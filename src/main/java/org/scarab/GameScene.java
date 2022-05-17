@@ -29,8 +29,12 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
 
     int count = 0;
     public GameScene() {
+<<<<<<< HEAD
         super(root, 700, 700);
         map1 = new Map(allmap[count]);
+=======
+        super(root, 1000, 1000);
+>>>>>>> 49922e98a5572200813fee2a6cf2cc6d5da3ca2a
         Group test = new Group();
         root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         for (int i = 0; i < map1.getAllElements().size(); i++) {
