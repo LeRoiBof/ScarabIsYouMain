@@ -71,10 +71,8 @@ public class Grid
 
     public ArrayList<Elements> getElementsAtPos(int x, int y)
     {
-        System.out.println(x + "  " + y);
-        if (y > 0 && x > 0 && x < width && y < height)
-            return Grid.get(x).get(y);
-        return null;
+        if (y > 0 && x > 0 && x < width && y < height);
+        return Grid.get(x).get(y);
     }
 
     public void removeElementAtPos(int x, int y, Elements elem)

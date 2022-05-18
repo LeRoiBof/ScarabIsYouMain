@@ -18,11 +18,8 @@ public class Rules
                boolean you = false;
              for(Elements e : map.getGrid().getElementsAtPos(i,j))
              {
-<<<<<<< HEAD
-=======
                  if(e.getIsWin())
                      win = true;
->>>>>>> 19d68bb26b2d2b5da0d0deb1ddd3800a61f90822
                 if(e.getIsSink())
                      sink = true;
                 if(e.getIsHot())
