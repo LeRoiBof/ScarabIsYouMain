@@ -2,7 +2,7 @@ package org.scarab;
 
 public class SceneChanger {
 
-    public enum enumScene {MENU,SETTINGS,GAME,PAUSE}
+    public enum enumScene {MENU,SETTINGS,GAME,PAUSE,LOAD}
     public static void changeTo(enumScene enums){
         switch(enums){
             case MENU:
@@ -18,6 +18,9 @@ public class SceneChanger {
                 break;
             case PAUSE:
                 Main.primaryStage.setScene(Main.pauseScene);
+                break;
+            case LOAD:
+                Main.primaryStage.setScene(Main.loadScene);
 
         }
 

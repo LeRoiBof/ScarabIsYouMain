@@ -3,15 +3,14 @@ package org.scarab;
 
 import javafx.css.Rule;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.*;
 import org.scarab.Elements.Elements;
 import org.scarab.Elements.Rules;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 
 import javafx.event.EventHandler;
@@ -29,16 +28,10 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
 
     Map map1;
 
-    int count = 0;
+    static int count = 0;
     public GameScene() {
-<<<<<<< HEAD
-        super(root, 700, 700);
-        map1 = new Map(allmap[count]);
-
-=======
         super(root, 1000, 1000);
         map1 = new Map(allmap[count]);
->>>>>>> e5b1062d05a64022a3ec3cb7d11df607a0d7b215
         Group test = new Group();
         root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         for (int i = 0; i < map1.getAllElements().size(); i++) {
@@ -50,6 +43,14 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
         root.setCenter(test);
         setOnKeyPressed(this);
         setFill(Color.BLACK);
+        root.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ESCAPE){
+                    Main.primaryStage.close();
+                }
+            }
+        });
     }
 
     @Override
@@ -64,8 +65,9 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
         System.out.println(Rules.check(map1));
         switch (Rules.check(map1)) {
             case 0:
-                System.out.println("j'ai gagné");
-
+                count+=1;
+                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
+                break;
 
         }
         for (Elements elementstomove: map1.getAllElements()) {

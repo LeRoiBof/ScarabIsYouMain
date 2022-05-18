@@ -20,11 +20,13 @@ public class MenuScene extends MenuConstructor {
     private final CustomButton play = new CustomButton("PLAY");
     private final CustomButton quit = new CustomButton("QUIT");
     private final CustomButton settings = new CustomButton("SETTINGS");
+    private final CustomButton continu = new CustomButton("CONTINUE");
+    private final CustomButton load = new CustomButton("LOAD SAVE");
     public MenuScene() {
         super(root);
         /// Button settings
         panel.setSpacing(10);
-        panel.getChildren().addAll(play, settings,quit);
+        panel.getChildren().addAll(play, continu,load,settings,quit);
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
 
@@ -45,6 +47,12 @@ public class MenuScene extends MenuConstructor {
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.GAME);
+            }
+        });
+        load.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                SceneChanger.changeTo(SceneChanger.enumScene.LOAD);
             }
         });
     }
