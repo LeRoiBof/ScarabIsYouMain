@@ -1,45 +1,45 @@
 18 18
-text_wall 4 4
-is 5 4
-stop 6 4
-text_rock 11 4
-is 12 4
-push 13 4
-wall 3 6
-wall 4 6
-wall 5 6
-wall 6 6
-wall 7 6
-wall 8 6
-wall 9 6
-wall 10 6
-wall 11 6
-wall 12 6
-wall 13 6
-wall 14 6
-flag 12 8 1
-rock 8 7 0
-rock 8 8 2
-rock 8 9 1
-wall 3 10
-wall 4 10
-wall 5 10
-wall 6 10
-wall 7 10
-wall 8 10
-wall 9 10
-wall 10 10
-wall 11 10
-wall 12 10
-wall 13 10
-wall 14 10
-text_baba 4 12
-is 5 12
-you 6 12
-text_flag 11 12
-is 12 12
-win 13 12
-baba 1 8 3
+text_wall 5 5
+is 6 5
+stop 7 5
+text_rock 12 5
+is 13 5
+push 14 5
+wall 4 7
+wall 5 7
+wall 6 7
+wall 7 7
+wall 8 7
+wall 9 7
+wall 10 7
+wall 11 7
+wall 12 7
+wall 13 7
+wall 14 7
+wall 15 7
+flag 13 9 1
+rock 9 8 0
+rock 9 9 2
+rock 9 10 1
+wall 4 11
+wall 5 11
+wall 6 11
+wall 7 11
+wall 8 11
+wall 9 11
+wall 10 11
+wall 11 11
+wall 12 11
+wall 13 11
+wall 14 11
+wall 15 11
+text_baba 5 13
+is 6 13
+you 7 13
+text_flag 12 13
+is 13 13
+win 14 13
+baba 5 9 3
 
 
 

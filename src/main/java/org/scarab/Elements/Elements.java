@@ -26,6 +26,7 @@ public class Elements
     protected boolean Win = false;
 
     protected ImageView imageView;
+    private static boolean canMove = true;
 
     public Elements(String name, int posX, int posY,int direction) throws FileNotFoundException
     {
@@ -39,48 +40,52 @@ public class Elements
         }
     }
 
+    public static void changeMove(boolean canMove_){
+        canMove = canMove_;
+    }
+
 
     public boolean move(KeyCode key, Grid grid)
     {
-        boolean Success = true;
+        if (canMove) {
+            boolean Success = true;
 
-        int v = 0;
-        int h = 0;
-        switch (key.getCode()) {
-            case 38 -> v = -1;
-            case 40 -> v = 1;
-            case 37 -> h = -1;  // gauche
-            case 39 -> h = 1;   // droite
-            default -> v = 0;
-        }
-        System.out.println("OK");
-        ArrayList<Elements> nextelems = grid.getElementsAtPos(this.posX + h, this.posY + v);
-        ArrayList<Elements> toMove = new ArrayList<Elements>();
-        if (nextelems != null) {
-            for (Elements e : nextelems) {
-                System.out.println(e.getIsStop());
-                if (e.getIsStop())
-                    return false;
+            int v = 0;
+            int h = 0;
+            switch (key.getCode()) {
+                case 38 -> v = -1;
+                case 40 -> v = 1;
+                case 37 -> h = -1;  // gauche
+                case 39 -> h = 1;   // droite
+                default -> v = 0;
             }
-            for (Elements e : nextelems) {
-                System.out.println(e.getClass().getName());
-                if (e.getIsPush())
-                    toMove.add(e);
+            ArrayList<Elements> nextelems = grid.getElementsAtPos(this.posX + h, this.posY + v);
+            ArrayList<Elements> toMove = new ArrayList<Elements>();
+            if (nextelems != null) {
+                for (Elements e : nextelems) {
+                    if (e.getIsStop())
+                        return false;
+                }
+                for (Elements e : nextelems) {
+
+                    if (e.getIsPush())
+                        toMove.add(e);
+                }
             }
-        }
-        for (Elements e : toMove)
-            Success = e.move(key, grid);
-        if (Success) {
+            for (Elements e : toMove)
+                Success = e.move(key, grid);
+            if (Success) {
 
-            grid.removeElementAtPos(this.posX, this.posY, this);
-            this.posY += v;
-            this.posX += h;
-            grid.addElementAtPos(this.posX, this.posY, this);
+                grid.removeElementAtPos(this.posX, this.posY, this);
+                this.posY += v;
+                this.posX += h;
+                grid.addElementAtPos(this.posX, this.posY, this);
 
-            this.imageView.setTranslateX(this.imageView.getTranslateX() + (h * 40));
-            this.imageView.setTranslateY(this.imageView.getTranslateY() + (v * 40));
+                this.imageView.setTranslateX(this.imageView.getTranslateX() + (h * 40));
+                this.imageView.setTranslateY(this.imageView.getTranslateY() + (v * 40));
 
 
+            }
         }
        return true;
     }

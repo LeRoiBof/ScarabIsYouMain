@@ -1,4 +1,4 @@
-package org.scarab;
+package org.scarab.Scenes;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -10,6 +10,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import org.scarab.CustomButton;
+import org.scarab.Main;
+import org.scarab.MenuConstructor;
+import org.scarab.SceneChanger;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -53,6 +57,13 @@ public class MenuScene extends MenuConstructor {
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.LOAD);
+            }
+        });
+        continu.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                SceneChanger.setPath("src/main/resources/save/save");
+                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
             }
         });
     }

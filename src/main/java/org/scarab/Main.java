@@ -5,12 +5,12 @@ import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.scarab.Scenes.LoadScene;
+import org.scarab.Scenes.MenuScene;
+import org.scarab.Scenes.SettingsScene;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -19,11 +19,8 @@ public class Main extends Application {
 
     public static Stage primaryStage;
     private final BorderPane root = new BorderPane();
-    private static String path = "src/main/resources/maps/map0.txt";
     static MenuScene menuScene = new MenuScene();
     static SettingsScene settingsScene = new SettingsScene();
-    static GameScene gameScene = new GameScene(path);
-    static PauseScene pauseScene = new PauseScene();
     static LoadScene loadScene = new LoadScene();
 
     public static void main(String[] args) {

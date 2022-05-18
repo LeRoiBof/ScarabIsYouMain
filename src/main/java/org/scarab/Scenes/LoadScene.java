@@ -1,4 +1,4 @@
-package org.scarab;
+package org.scarab.Scenes;
 
 import javafx.application.Preloader;
 import javafx.event.EventHandler;
@@ -6,11 +6,14 @@ import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import org.scarab.CustomButton;
+import org.scarab.MenuConstructor;
+import org.scarab.SceneChanger;
 
 import java.io.File;
 import java.util.Objects;
 
-public class LoadScene extends MenuConstructor{
+public class LoadScene extends MenuConstructor {
     private static final BorderPane root = new BorderPane();
     private final CustomButton back = new CustomButton("BACK");
     private final HBox panel = new HBox();
@@ -33,6 +36,12 @@ public class LoadScene extends MenuConstructor{
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.MENU);
+            }
+        });
+        panel.getChildren().get(0).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
             }
         });
 

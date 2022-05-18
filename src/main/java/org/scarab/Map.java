@@ -50,21 +50,18 @@ public class Map
                 }
             }
             Lecture.close();
-            this.save();
         }
         catch(FileNotFoundException e )
         {
-            System.out.println("File not found");
             e.printStackTrace();
         }
 
     }
-    public void save()
+    public static void save()
     {
         try {
-            FileWriter savemap = new FileWriter("src/main/resources/save/save.txt");
+            FileWriter savemap = new FileWriter("src/main/resources/save/save"+ SceneChanger.getCount()+ ".txt");
             savemap.write((map_width - 2) + " " + (map_height - 2) + "\n");
-            System.out.println("lis ta grand mere");
             for (Elements e : getAllElements()) {
                 if (!e.getName().equals("border"))
                     savemap.write(e.getName() + " " + e.getPosX() + " " + e.getPosY() + " " + e.getDirection() + "\n");
@@ -72,9 +69,11 @@ public class Map
                 savemap.close();
         }
         catch (IOException e){
-            System.out.println("Error detected");
             e.printStackTrace();
         }
+    }
+    public static void clearElements(){
+        AllElements.clear();
     }
 
     public int getMap_height() {return map_height;}

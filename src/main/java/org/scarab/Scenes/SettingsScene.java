@@ -1,4 +1,4 @@
- package org.scarab;
+ package org.scarab.Scenes;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -6,6 +6,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import org.scarab.CustomButton;
+import org.scarab.MenuConstructor;
+import org.scarab.SceneChanger;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,7 +41,6 @@ import java.util.Random;
             public void handle(MouseEvent event) {
                 Random random = new Random();
                 int randomNumber = random.nextInt(5);
-                System.out.println(randomNumber);
                 switch (randomNumber){
                     case 0: {
                         String path = "src/main/resources/music/menu" + 1 + ".mp3";
