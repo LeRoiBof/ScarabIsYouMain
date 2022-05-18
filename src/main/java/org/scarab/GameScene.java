@@ -20,15 +20,11 @@ import java.io.FileNotFoundException;
 
 public class GameScene extends Scene implements EventHandler<KeyEvent> {
     private final static BorderPane root = new BorderPane();
-    String [] allmap = { "src/main/resources/maps/map.txt",
-            "src/main/resources/maps/map2.txt",
-            "src/main/resources/maps/map3.txt",
-            "src/main/resources/maps/map4.txt"
-    };
+    String path = "src/main/resources/maps/map";
 
     Map map1;
 
-    static int count = 0;
+    static int count;
     public GameScene() {
 <<<<<<< HEAD
 
@@ -38,8 +34,15 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
 
 =======
         super(root, 1000, 1000);
+<<<<<<< HEAD
         map1 = new Map(allmap[count]);
 >>>>>>> 45b1250559d5253d58fb5bee4d11703e0de485ad
+=======
+        if (count == 0){
+            count = 0;
+        }
+        map1 = new Map(path + count + ".txt");
+>>>>>>> 5df3c6ddf433f60cbb3e9b9d1753d60f51b590e0
         Group test = new Group();
         root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         for (int i = 0; i < map1.getAllElements().size(); i++) {
@@ -74,9 +77,14 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
         switch (Rules.check(map1)) {
             case 0:
 <<<<<<< HEAD
+<<<<<<< HEAD
                 System.out.println("j'ai gagné");
 =======
                 count+=1;
+=======
+                GameScene.count+=1;
+                System.out.println(count);
+>>>>>>> 5df3c6ddf433f60cbb3e9b9d1753d60f51b590e0
                 SceneChanger.changeTo(SceneChanger.enumScene.GAME);
                 break;
 
