@@ -18,7 +18,6 @@ public class Rules
                boolean you = false;
              for(Elements e : map.getGrid().getElementsAtPos(i,j))
              {
-<<<<<<< HEAD
 
                 if(e.getIsSink())
                      sink = true;
@@ -38,38 +37,7 @@ public class Rules
                  return 1;
 
              if(hot && you)
-=======
-                 if(e.getIsSink()) {
-                     System.out.println("SINK TRUE");
-                     sink = true; }
-                 else if(e.getIsHot()) {
-                     System.out.println("HOT TRUE");
-                     hot = true; }
-                 else if(e.getIsYou()) {
-                     System.out.println("YOU TRUE");
-                    you = true; }
-                 else if(e.getIsWin()) {
-                     System.out.println("WIN TRUE");
-                     win = true;
-                 }
-             }
-             if (!you) {
-                 System.out.println("1er if");
-                 return 3;
-             }
-             else if (win && you){
-                 System.out.println("2e if");
-                 return 0;
-             }
-             else if(sink && you) {
-                 System.out.println("3e if");
-                 return 1;
-             }
-             else if(hot && you) {
-                 System.out.println("4e if");
->>>>>>> e5b1062d05a64022a3ec3cb7d11df607a0d7b215
                  return 2;
-
            }
        }
         if (!youe)

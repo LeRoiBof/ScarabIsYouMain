@@ -31,7 +31,8 @@ public class PauseScene extends MenuConstructor {
         save.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Map.save();
+                //Map.save();
+                System.out.println("hmar2");
             }
         });
     }
