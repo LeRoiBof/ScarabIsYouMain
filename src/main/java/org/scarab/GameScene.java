@@ -20,18 +20,17 @@ import java.io.FileNotFoundException;
 
 public class GameScene extends Scene implements EventHandler<KeyEvent> {
     private final static BorderPane root = new BorderPane();
-    String [] allmap = { "src/main/resources/maps/map.txt",
-            "src/main/resources/maps/map2.txt",
-            "src/main/resources/maps/map3.txt",
-            "src/main/resources/maps/map4.txt"
-    };
+    String path = "src/main/resources/maps/map";
 
     Map map1;
 
-    static int count = 0;
+    static int count;
     public GameScene() {
         super(root, 1000, 1000);
-        map1 = new Map(allmap[count]);
+        if (count == 0){
+            count = 0;
+        }
+        map1 = new Map(path + count + ".txt");
         Group test = new Group();
         root.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         for (int i = 0; i < map1.getAllElements().size(); i++) {
@@ -65,7 +64,8 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
         System.out.println(Rules.check(map1));
         switch (Rules.check(map1)) {
             case 0:
-                count+=1;
+                GameScene.count+=1;
+                System.out.println(count);
                 SceneChanger.changeTo(SceneChanger.enumScene.GAME);
                 break;
 
