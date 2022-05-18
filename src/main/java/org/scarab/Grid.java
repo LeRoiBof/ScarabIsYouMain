@@ -67,6 +67,7 @@ public class Grid
             Grid.get(x).get(y).add(elem);
         if (elem instanceof Is)
             arrayIs.add(elem);
+
     }
 
     public ArrayList<Elements> getElementsAtPos(int x, int y)

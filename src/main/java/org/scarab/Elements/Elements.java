@@ -18,7 +18,7 @@ public class Elements
 
     protected boolean IsYou = false;
     protected boolean IsPush = false;
-    protected boolean IsStop;
+    protected boolean IsStop = false;
 
     protected boolean IsHot = false;
     protected boolean IsSink = false;
@@ -35,10 +35,8 @@ public class Elements
         this.posY = posY;
         this.direction = direction;
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
-        System.out.println(name);
-        if (name.equals("border")){
-            this.IsStop = true;
-        }
+
+
     }
 
     public static void changeMove(boolean canMove_){
@@ -117,7 +115,7 @@ public class Elements
         return IsHot;
     }
 
-    public void setLava(boolean Hot) {
+    public void setHot(boolean Hot) {
         IsHot = Hot;
     }
 
