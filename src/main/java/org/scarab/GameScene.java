@@ -61,16 +61,6 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
                 break;
 
         }
-        for (Elements elementstomove: map1.getAllElements()) {
-            if (!elementstomove.getName().equals("border")) {
-                elementstomove.setIsPush(false);
-                elementstomove.setIsYou(false);
-                elementstomove.setIsWin(false);
-                elementstomove.setIsStop(false);
-                elementstomove.setIsSink(false);
-
-            }
-        }
     }
 }
 

@@ -18,7 +18,7 @@ public class Elements
 
     protected boolean IsYou = false;
     protected boolean IsPush = false;
-    protected boolean IsStop = false;
+    protected boolean IsStop;
 
     protected boolean IsHot = false;
     protected boolean IsSink = false;
@@ -34,8 +34,9 @@ public class Elements
         this.posY = posY;
         this.direction = direction;
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
+        System.out.println(name);
         if (name.equals("border")){
-            this.setIsStop(true);
+            this.IsStop = true;
         }
     }
 
@@ -53,7 +54,6 @@ public class Elements
             case 39 -> h = 1;   // droite
             default -> v = 0;
         }
-        System.out.println("OK");
         ArrayList<Elements> nextelems = grid.getElementsAtPos(this.posX + h, this.posY + v);
         ArrayList<Elements> toMove = new ArrayList<Elements>();
         if (nextelems != null) {

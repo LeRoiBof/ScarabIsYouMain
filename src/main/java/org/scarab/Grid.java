@@ -63,21 +63,24 @@ public class Grid
     
     public void addElementAtPos(int x, int y, Elements elem)
     {
-        Grid.get(x).get(y).add(elem);
+        if (y > 0 && x > 0 && x < width && y < height)
+            Grid.get(x).get(y).add(elem);
         if (elem instanceof Is)
             arrayIs.add(elem);
     }
 
     public ArrayList<Elements> getElementsAtPos(int x, int y)
     {
-        if (x < width && y < height)
+        System.out.println(x + "  " + y);
+        if (y > 0 && x > 0 && x < width && y < height)
             return Grid.get(x).get(y);
         return null;
     }
 
     public void removeElementAtPos(int x, int y, Elements elem)
     {
-        Grid.get(x).get(y).remove(elem);
+        if (x < width - 1 && y < height - 1)
+            Grid.get(x).get(y).remove(elem);
     }
 
     public ArrayList<ArrayList<ArrayList<Elements>>> getGrid()
@@ -85,4 +88,12 @@ public class Grid
         return Grid;
     }
     public ArrayList<Elements> getArrayIs() {return arrayIs;}
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
 }
