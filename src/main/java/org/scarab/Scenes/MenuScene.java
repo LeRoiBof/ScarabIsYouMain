@@ -10,13 +10,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import org.scarab.CustomButton;
-import org.scarab.Main;
-import org.scarab.MenuConstructor;
-import org.scarab.SceneChanger;
+import org.scarab.*;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.security.spec.ECField;
+import java.util.Objects;
 
 public class MenuScene extends MenuConstructor {
     private final static BorderPane root = new BorderPane();
@@ -26,11 +26,12 @@ public class MenuScene extends MenuConstructor {
     private final CustomButton settings = new CustomButton("SETTINGS");
     private final CustomButton continu = new CustomButton("CONTINUE");
     private final CustomButton load = new CustomButton("LOAD LEVEL");
+    private final int fileCount = Objects.requireNonNull(new File("src/main/resources/save").list()).length;
     public MenuScene() {
         super(root);
         /// Button settings
         panel.setSpacing(10);
-        panel.getChildren().addAll(play, continu,load,settings,quit);
+        panel.getChildren().addAll(play,load,settings,quit);
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
 
@@ -50,7 +51,11 @@ public class MenuScene extends MenuConstructor {
         play.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                panel.getChildren().add(1,continu);
+                panel.getChildren().remove(play);
+                SceneChanger.setPath("src/main/resources/maps/map");
                 SceneChanger.changeTo(SceneChanger.enumScene.GAME);
+                Map.save();
             }
         });
         load.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -62,8 +67,8 @@ public class MenuScene extends MenuConstructor {
         continu.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneChanger.setPath("src/main/resources/save/save");
-                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
+                    SceneChanger.setPath("src/main/resources/save/save");
+                    SceneChanger.changeTo(SceneChanger.enumScene.GAME);
             }
         });
     }

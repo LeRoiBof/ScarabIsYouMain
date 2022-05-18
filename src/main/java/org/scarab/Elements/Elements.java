@@ -35,7 +35,6 @@ public class Elements
         this.posY = posY;
         this.direction = direction;
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
-        System.out.println(name);
         if (name.equals("border")){
             this.IsStop = true;
         }

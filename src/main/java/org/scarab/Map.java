@@ -71,6 +71,13 @@ public class Map
         catch (IOException e){
             e.printStackTrace();
         }
+        try {
+            int newCount = SceneChanger.getCount()-1;
+            File save = new File("src/main/resources/save/save"+ newCount +".txt");
+            save.delete();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
     public static void clearElements(){
         AllElements.clear();

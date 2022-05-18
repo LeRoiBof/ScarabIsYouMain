@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import org.scarab.CustomButton;
+import org.scarab.Map;
 import org.scarab.MenuConstructor;
 import org.scarab.SceneChanger;
 
@@ -41,7 +42,33 @@ public class LoadScene extends MenuConstructor {
         panel.getChildren().get(0).setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
+                SceneChanger.setLoadCount(0);
+                SceneChanger.setPath("src/main/resources/maps/map");
+                SceneChanger.changeTo(SceneChanger.enumScene.LOADLEVEL);
+            }
+        });
+        panel.getChildren().get(1).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                SceneChanger.setLoadCount(1);
+                SceneChanger.setPath("src/main/resources/maps/map");
+                SceneChanger.changeTo(SceneChanger.enumScene.LOADLEVEL);
+            }
+        });
+        panel.getChildren().get(2).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                SceneChanger.setLoadCount(2);
+                SceneChanger.setPath("src/main/resources/maps/map");
+                SceneChanger.changeTo(SceneChanger.enumScene.LOADLEVEL);
+            }
+        });
+        panel.getChildren().get(3).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                SceneChanger.setLoadCount(3);
+                SceneChanger.setPath("src/main/resources/maps/map");
+                SceneChanger.changeTo(SceneChanger.enumScene.LOADLEVEL);
             }
         });
 

@@ -20,7 +20,7 @@ public class MenuConstructor extends Scene {
     private static MediaPlayer menuMedia = null;
     private static Media temp;
     public MenuConstructor(BorderPane root){
-        super(root);
+        super(root,1280,720);
         changeMusic(path);
         Media menuVid = new Media(new File("src/main/resources/videos/menuvideo.mp4").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(menuVid);
