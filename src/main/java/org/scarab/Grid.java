@@ -6,6 +6,10 @@ import org.scarab.Elements.Material;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+
+/**
+ * Classe qui definie la grille qui a pour but
+ */
 public class Grid
 {
     private ArrayList<ArrayList<ArrayList<Elements>>> Grid = new ArrayList<ArrayList<ArrayList<Elements>>>();
@@ -13,6 +17,13 @@ public class Grid
 
     private final int width;
     private final int height;
+
+    /**
+     * methode qui creer la grille
+     * @param width
+     * @param height
+     * @param map
+     */
     public Grid(int width, int height, Map map)
     {
         this.width = width;
