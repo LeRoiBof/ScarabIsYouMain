@@ -7,6 +7,7 @@ public class Rules
 {
     public static int check(Map map)
     {
+        boolean youe = false;
        for(int i = 0; i < map.getMap_height();i++)
        {
            for(int j = 0; j < map.getMap_width(); j++)
@@ -17,29 +18,31 @@ public class Rules
                boolean you = false;
              for(Elements e : map.getGrid().getElementsAtPos(i,j))
              {
-                 if(e.getIsSink())
+
+                if(e.getIsSink())
                      sink = true;
-                 if(e.getIsHot())
+                if(e.getIsHot())
                     hot = true;
-                 if(e.getIsYou())
+                if(e.getIsYou()) {
                     you = true;
-                 if(e.getIsWin())
+                    youe = true;
+                }
+                if(e.getIsWin())
                     win = true;
              }
-             if (!you)
-                 return 3;
-             if (win && you){
-                 return 0;
-             }
-             if(sink && you) {
+             if (win && you)
+                   return 0;
+
+             if(sink && you)
                  return 1;
-             }
-             if(hot && you) {
+
+             if(hot && you)
                  return 2;
-               }
 
            }
        }
+        if (!youe)
+            return 3;
        return 4;
     }
 
