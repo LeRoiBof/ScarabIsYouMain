@@ -57,7 +57,6 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
             case 0:
 
         }
-        SceneChanger.changeTo(SceneChanger.enumScene.PAUSE);
         for (Elements elementstomove: map1.getAllElements()) {
             if (!elementstomove.getName().equals("border")) {
                 elementstomove.setIsPush(false);

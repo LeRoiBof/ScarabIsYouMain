@@ -10,12 +10,12 @@ import java.util.Scanner;
 
 public class Map
 {
-    private int map_width;
-    private int map_height;
+    private static int map_width;
+    private static int map_height;
 
     private Grid grid;
 
-    private ArrayList<Elements> AllElements = new ArrayList<Elements>();
+    private static ArrayList<Elements> AllElements = new ArrayList<Elements>();
 
     public Map(String path)
     {
@@ -58,16 +58,16 @@ public class Map
         }
 
     }
-    public void save()
+    public static void save()
     {
         try {
-            FileWriter savemap = new FileWriter("Save/save1.txt");
+            FileWriter savemap = new FileWriter("src/main/resources/save/save.txt");
             savemap.write(map_width + " " + map_height);
             for (Elements e : getAllElements())
                 savemap.write(e.getName() + " " + e.getPosX() + " " + e.getPosY() + e.getDirection());
         }
         catch (IOException e){
-            System.out.println("an error is detected");
+            System.out.println("Error detected");
             e.printStackTrace();
         }
     }
@@ -76,7 +76,7 @@ public class Map
     public int getMap_width(){return map_width;}
 
 
-    public ArrayList<Elements> getAllElements() {
+    public static ArrayList<Elements> getAllElements() {
         return AllElements;
     }
 

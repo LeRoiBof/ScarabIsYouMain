@@ -28,5 +28,11 @@ public class PauseScene extends MenuConstructor {
                 Main.primaryStage.close();
             }
         });
+        save.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Map.save();
+            }
+        });
     }
 }
