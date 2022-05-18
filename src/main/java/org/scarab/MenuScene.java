@@ -21,7 +21,7 @@ public class MenuScene extends MenuConstructor {
     private final CustomButton quit = new CustomButton("QUIT");
     private final CustomButton settings = new CustomButton("SETTINGS");
     private final CustomButton continu = new CustomButton("CONTINUE");
-    private final CustomButton load = new CustomButton("LOAD SAVE");
+    private final CustomButton load = new CustomButton("LOAD LEVEL");
     public MenuScene() {
         super(root);
         /// Button settings

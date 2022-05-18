@@ -19,9 +19,10 @@ public class Main extends Application {
 
     public static Stage primaryStage;
     private final BorderPane root = new BorderPane();
+    private static String path = "src/main/resources/maps/map0.txt";
     static MenuScene menuScene = new MenuScene();
     static SettingsScene settingsScene = new SettingsScene();
-    static GameScene gameScene = new GameScene();
+    static GameScene gameScene = new GameScene(path);
     static PauseScene pauseScene = new PauseScene();
     static LoadScene loadScene = new LoadScene();
 

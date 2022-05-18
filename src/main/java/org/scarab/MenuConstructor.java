@@ -43,6 +43,15 @@ public class MenuConstructor extends Scene {
         ImageView titleView = new ImageView(title);
         BorderPane.setAlignment(titleView, Pos.CENTER);
         root.setTop(titleView);
+        Image credits = null;
+        try {
+            credits = new Image(new FileInputStream("src/main/resources/assets/menu/credits.png"));
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        ImageView creditsView = new ImageView(credits);
+        BorderPane.setAlignment(creditsView,Pos.CENTER);
+        root.setBottom(creditsView);
     }
     public static void changeMusic(String path){
         if (menuMedia != null){
