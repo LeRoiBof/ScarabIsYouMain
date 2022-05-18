@@ -25,7 +25,7 @@ public class Rules
                      hot = true; }
                  else if(e.getIsYou()) {
                      System.out.println("YOU TRUE");
-                    you = true; }
+                     you = true; }
                  else if(e.getIsWin()) {
                      System.out.println("WIN TRUE");
                      win = true;
