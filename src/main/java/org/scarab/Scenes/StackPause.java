@@ -35,13 +35,16 @@ public class StackPause extends BorderPane {
         quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneChanger.changeTo(SceneChanger.enumScene.MENU);
+                Main.primaryStage.close();
             }
         });
         save.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Map.save();
+                Elements.changeMove(true);
+                Map.clearElements();
+                SceneChanger.changeTo(SceneChanger.enumScene.MENU);
             }
         });
         continu.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -55,7 +58,8 @@ public class StackPause extends BorderPane {
             @Override
             public void handle(MouseEvent event) {
                 Map.clearElements();
-                SceneChanger.changeCount(SceneChanger.getCount()-1);
+                Elements.changeMove(true);
+                SceneChanger.setPath("src/main/resources/maps/map");
                 SceneChanger.changeTo(SceneChanger.enumScene.GAME);
             }
         });

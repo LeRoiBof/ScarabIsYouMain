@@ -35,8 +35,6 @@ public class Elements
         this.posY = posY;
         this.direction = direction;
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
-
-
     }
 
     public static void changeMove(boolean canMove_){

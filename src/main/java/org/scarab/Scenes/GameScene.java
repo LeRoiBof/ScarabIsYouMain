@@ -56,7 +56,9 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
             case 0:
                 Map.clearElements();
                 SceneChanger.setPath("src/main/resources/maps/map");
+                SceneChanger.changeCount(SceneChanger.getCount()+1);
                 SceneChanger.changeTo(SceneChanger.enumScene.GAME);
+                Map.save();
                 break;
 
         }
