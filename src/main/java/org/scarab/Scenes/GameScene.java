@@ -60,6 +60,7 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
                 break;
 
         }
+<<<<<<< HEAD:src/main/java/org/scarab/Scenes/GameScene.java
         for (Elements elementstomove: map1.getAllElements()) {
             if (!elementstomove.getName().equals("border")) {
                 elementstomove.setIsPush(false);
@@ -74,6 +75,8 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
             Elements.changeMove(false);
             root.getChildren().add(stackPause);
         }
+=======
+>>>>>>> 19d68bb26b2d2b5da0d0deb1ddd3800a61f90822:src/main/java/org/scarab/GameScene.java
     }
 }
 

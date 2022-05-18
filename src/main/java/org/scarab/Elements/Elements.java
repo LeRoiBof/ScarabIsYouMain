@@ -18,7 +18,7 @@ public class Elements
 
     protected boolean IsYou = false;
     protected boolean IsPush = false;
-    protected boolean IsStop = false;
+    protected boolean IsStop;
 
     protected boolean IsHot = false;
     protected boolean IsSink = false;
@@ -35,8 +35,9 @@ public class Elements
         this.posY = posY;
         this.direction = direction;
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
+        System.out.println(name);
         if (name.equals("border")){
-            this.setIsStop(true);
+            this.IsStop = true;
         }
     }
 
@@ -50,6 +51,7 @@ public class Elements
         if (canMove) {
             boolean Success = true;
 
+<<<<<<< HEAD
             int v = 0;
             int h = 0;
             switch (key.getCode()) {
@@ -58,6 +60,24 @@ public class Elements
                 case 37 -> h = -1;  // gauche
                 case 39 -> h = 1;   // droite
                 default -> v = 0;
+=======
+        int v = 0;
+        int h = 0;
+        switch (key.getCode()) {
+            case 38 -> v = -1;
+            case 40 -> v = 1;
+            case 37 -> h = -1;  // gauche
+            case 39 -> h = 1;   // droite
+            default -> v = 0;
+        }
+        ArrayList<Elements> nextelems = grid.getElementsAtPos(this.posX + h, this.posY + v);
+        ArrayList<Elements> toMove = new ArrayList<Elements>();
+        if (nextelems != null) {
+            for (Elements e : nextelems) {
+                System.out.println(e.getIsStop());
+                if (e.getIsStop())
+                    return false;
+>>>>>>> 19d68bb26b2d2b5da0d0deb1ddd3800a61f90822
             }
             ArrayList<Elements> nextelems = grid.getElementsAtPos(this.posX + h, this.posY + v);
             ArrayList<Elements> toMove = new ArrayList<Elements>();

@@ -18,6 +18,11 @@ public class Rules
                boolean you = false;
              for(Elements e : map.getGrid().getElementsAtPos(i,j))
              {
+<<<<<<< HEAD
+=======
+                 if(e.getIsWin())
+                     win = true;
+>>>>>>> 19d68bb26b2d2b5da0d0deb1ddd3800a61f90822
                 if(e.getIsSink())
                      sink = true;
                 if(e.getIsHot())
@@ -26,8 +31,7 @@ public class Rules
                     you = true;
                     youe = true;
                 }
-                if(e.getIsWin())
-                    win = true;
+
              }
              if (win && you)
                    return 0;
@@ -75,11 +79,13 @@ public class Rules
                            }
                            else if (rightelem.getName().equals("stop"))
                            {
-                               for (Elements textelem : map.getAllElements())
-                                   if(textelem.getName().equals(((Texts)leftelem).getRef()))
+                               for (Elements textelem : map.getAllElements()) {
+                                   if(textelem.getName().equals(((Texts)leftelem).getRef()) || textelem.getName().equals("border"))
                                        textelem.setIsStop(true);
-                                   else
+                                   else {
                                        textelem.setIsStop(false);
+                                   }
+                               }
                            }
                            else if (rightelem.getName().equals("win"))
                            {
