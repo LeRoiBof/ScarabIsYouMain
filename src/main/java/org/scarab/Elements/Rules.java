@@ -23,7 +23,6 @@ public class Rules
                boolean you = false;
              for(Elements e : map.getGrid().getElementsAtPos(i,j))
              {
-
                  if(e.getIsWin())
                      win = true;
                  if(e.getIsSink())
@@ -34,7 +33,27 @@ public class Rules
                     you = true;
                     youe = true;
                 }
+                 if (e.getIsBest()) {
+                     System.out.println(e.getName());
+                     if (e.getBestt() == null && e.getIsBest()) {
+                         try {
+                             ImageView a = new ImageView(new Image(new FileInputStream("src/main/resources/img/best.gif")));
+                             e.setBestt(a);
+                             ((Group)e.getImageView().getParent()).getChildren().add(a);
+                             a.setTranslateX(e.getImageView().getTranslateX());
+                             a.setTranslateY(e.getImageView().getTranslateY());
+                         } catch (Exception ex) {
+                         }
 
+                     }
+                 } else {
+                     ImageView tmp = e.getBestt();
+
+                     if (tmp != null) {
+                         ((Group)tmp.getParent()).getChildren().remove(tmp);
+                         e.setBestt(null);
+                     }
+                 }
              }
              if (win && you)
                    return 0;
@@ -54,7 +73,7 @@ public class Rules
                              map.getGrid().removeElementAtPos(ref.getPosX(), ref.getPosY(),ref);
                             ((Group)ref.getImageView().getParent()).getChildren().remove(ref.getImageView());
                          }
-                         
+
                      }
              if(hot && you)
                  return 2;
@@ -66,10 +85,9 @@ public class Rules
     }
 
 
-    public static void updaterules(Map map)
-    {
+    public static void updaterules(Map map) {
         Grid grid = map.getGrid();
-        for(Elements i : grid.getArrayIs()) {
+        for (Elements i : grid.getArrayIs()) {
             for (Elements leftelem : grid.getElementsAtPos(i.getPosX() - 1, i.getPosY())) {
                 if (leftelem instanceof Texts) {
                     for (Elements rightelem : grid.getElementsAtPos(i.getPosX() + 1, i.getPosY())) {
@@ -114,23 +132,13 @@ public class Rules
                                     else
                                         textelem.setHot(false);
                             } else if (rightelem.getName().equals("best")) {
+                                System.out.println("hmaaaar");
                                 for (Elements textelem : map.getAllElements())
-                                    if (textelem.getName().equals(((Texts) leftelem).getRef())) {
+                                    if (textelem.getName().equals(((Texts) leftelem).getRef()))
                                         textelem.setBest(true);
-                                        System.out.println(textelem.getName());
-
-                                        try {
-                                            ImageView a = new ImageView(new Image(new FileInputStream("src/main/resources/img/best.gif")));
-                                            textelem.setBestt(a);
-                                            ((Group)textelem.getImageView().getParent()).getChildren().add(a);
-                                            ((Group)textelem.getImageView().getParent()).getChildren().remove(textelem.getImageView());
-                                            a.setTranslateX(textelem.getImageView().getTranslateX());
-                                            a.setTranslateY(textelem.getImageView().getTranslateY());
-                                        } catch (Exception e) {
-                                        }
-                                    } else
+                                    else {
                                         textelem.setBest(false);
-
+                                    }
                             }
                         }
                     }
@@ -183,22 +191,8 @@ public class Rules
                                 for (Elements textelem : map.getAllElements())
                                     if (textelem.getName().equals(((Texts) upelem).getRef())) {
                                         textelem.setBest(true);
-                                        System.out.println(textelem.getName());
-
-                                        try {
-                                            ImageView a = new ImageView(new Image(new FileInputStream("src/main/resources/img/best.gif")));
-                                            textelem.setBestt(a);
-                                            ((Group)textelem.getImageView().getParent()).getChildren().add(a);
-                                            ((Group)textelem.getImageView().getParent()).getChildren().remove(textelem.getImageView());
-
-                                            a.setTranslateX(textelem.getImageView().getTranslateX());
-                                            a.setTranslateY(textelem.getImageView().getTranslateY());
-
-                                            } catch (Exception e) {
-                                        }
                                     } else
                                         textelem.setBest(false);
-
                             }
                         }
                     }
