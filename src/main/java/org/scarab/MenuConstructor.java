@@ -19,6 +19,11 @@ public class MenuConstructor extends Scene {
     private String path = "src/main/resources/music/menu1.mp3";
     private static MediaPlayer menuMedia = null;
     private static Media temp;
+
+    /**
+     * @param root Prends en paramètre le root de la scène pour en définir les propriétés
+     *             Constructeur de toutes les scènes du menu
+     */
     public MenuConstructor(BorderPane root){
         super(root,1280,720);
         changeMusic(path);
@@ -53,6 +58,11 @@ public class MenuConstructor extends Scene {
         BorderPane.setAlignment(creditsView,Pos.CENTER);
         root.setBottom(creditsView);
     }
+
+    /**
+     * @param path Prends en paramètre un path pour le changement de musique
+     *             Méthode permettant de changer la musique en cours du menu. La méthode arrête la musique en cours et lance une nouvelle
+     */
     public static void changeMusic(String path){
         if (menuMedia != null){
             menuMedia.stop();
@@ -63,10 +73,18 @@ public class MenuConstructor extends Scene {
         menuMedia.setCycleCount(MediaPlayer.INDEFINITE);
         menuMedia.setVolume(0.1);
     }
+
+    /**
+     * Méthode permettant d'arrêter la musique en cours tout en la sauvegardant dans une variable
+     */
     public static void stopMusic(){
         temp = menuMedia.getMedia();
         menuMedia.stop();
     }
+
+    /**
+     * Méthode permettant de reprendre la musique précédemment arrêtée
+     */
     public static void replayMusic(){
         menuMedia = new MediaPlayer(temp);
         menuMedia.setAutoPlay(true);

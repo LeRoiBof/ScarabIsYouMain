@@ -40,6 +40,10 @@ public class Elements
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
     }
 
+    /**
+     * @param canMove_ Prends en paramètre un booléen
+     *                 Méthode permettant de changer la valeur de la condition de déplacement
+     */
     public static void changeMove(boolean canMove_){
         canMove = canMove_;
     }

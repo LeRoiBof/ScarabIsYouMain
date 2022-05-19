@@ -18,9 +18,13 @@ public class LoadScene extends MenuConstructor {
     private static final BorderPane root = new BorderPane();
     private final CustomButton back = new CustomButton("BACK");
     private final HBox panel = new HBox();
+    static int fileCount = Objects.requireNonNull(new File("src/main/resources/maps").list()).length;
+
+    /**
+     * Constructeur de la scene de chargements de niveaux
+     */
     public LoadScene(){
         super(root);
-        int fileCount = Objects.requireNonNull(new File("src/main/resources/maps").list()).length;
 
         for (int i = 0;i<fileCount;i++){
             CustomButton button = new CustomButton("Level " + i);
@@ -34,12 +38,20 @@ public class LoadScene extends MenuConstructor {
         root.setBottom(back);
 
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode permettant de revenir au menu principal
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.MENU);
             }
         });
         panel.getChildren().get(0).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode qui charge le niveau correspondant
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeCount(0);
@@ -48,6 +60,10 @@ public class LoadScene extends MenuConstructor {
             }
         });
         panel.getChildren().get(1).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode qui charge le niveau correspondant
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeCount(1);
@@ -56,6 +72,10 @@ public class LoadScene extends MenuConstructor {
             }
         });
         panel.getChildren().get(2).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode qui charge le niveau correspondant
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeCount(2);
@@ -64,6 +84,10 @@ public class LoadScene extends MenuConstructor {
             }
         });
         panel.getChildren().get(3).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode qui charge le niveau correspondant
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeCount(3);
@@ -72,5 +96,12 @@ public class LoadScene extends MenuConstructor {
             }
         });
 
+    }
+
+    /**
+     * @return Renvoie le nombre de fichier dans le dossier courant
+     */
+    public static int getFileCount(){
+        return fileCount;
     }
 }

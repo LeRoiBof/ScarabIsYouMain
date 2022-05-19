@@ -27,6 +27,10 @@ public class MenuScene extends MenuConstructor {
     private final CustomButton continu = new CustomButton("CONTINUE");
     private final CustomButton load = new CustomButton("LOAD LEVEL");
     private final int fileCount = Objects.requireNonNull(new File("src/main/resources/save").list()).length;
+
+    /**
+     * Constructeur du menu principal
+     */
     public MenuScene() {
         super(root);
         /// Button settings
@@ -37,18 +41,30 @@ public class MenuScene extends MenuConstructor {
 
         //Event handler
         quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode permettant de fermer la fenêtre
+             */
             @Override
             public void handle(MouseEvent event) {
                 Main.primaryStage.close();
             }
         });
         settings.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode permettant d'aller vers le menu paramètres
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.SETTINGS);
             }
         });
         play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode permettant de lancer le jeu au niveau 0. Le bouton est changé en continue une fois appuyé
+             */
             @Override
             public void handle(MouseEvent event) {
                 panel.getChildren().add(1,continu);
@@ -59,12 +75,20 @@ public class MenuScene extends MenuConstructor {
             }
         });
         load.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode permettant de changer vers la scene de chargement des niveaux
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.LOAD);
             }
         });
         continu.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * @param event Event de click sur le bouton
+             *              Méthode permettant de continuer dans le niveau sauvegardé au préalable
+             */
             @Override
             public void handle(MouseEvent event) {
                     SceneChanger.setPath("src/main/resources/save/save");

@@ -72,7 +72,7 @@ wall 6 8
 wall 12 8
 wall 13 8
 wall 14 8
-text_best 3 3
+best 3 3
 text_baba 6 17
 is 7 17
 you 8 17

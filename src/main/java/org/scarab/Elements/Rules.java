@@ -34,7 +34,6 @@ public class Rules
                     youe = true;
                 }
                  if (e.getIsBest()) {
-                     System.out.println(e.getName());
                      if (e.getBestt() == null && e.getIsBest()) {
                          try {
                              ImageView a = new ImageView(new Image(new FileInputStream("src/main/resources/img/best.gif")));
@@ -132,7 +131,6 @@ public class Rules
                                     else
                                         textelem.setHot(false);
                             } else if (rightelem.getName().equals("best")) {
-                                System.out.println("hmaaaar");
                                 for (Elements textelem : map.getAllElements())
                                     if (textelem.getName().equals(((Texts) leftelem).getRef()))
                                         textelem.setBest(true);

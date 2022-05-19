@@ -23,6 +23,10 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
     static Group test;
     private final static StackPause stackPause = new StackPause();
 
+    /**
+     * @param path_ Prends en paramètre un path permettant de générer une map
+     *              Constructeur des niveaux
+     */
     public GameScene(String path_) {
         super(new BorderPane(), 800, 800);
         root = (BorderPane) super.getRoot();
@@ -39,6 +43,10 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
         setFill(Color.BLACK);
     }
 
+
+    /**
+     * Méthode permettant de supprimer la scène pause
+     */
     public static void removePause(){
         root.getChildren().remove(stackPause);
     }
