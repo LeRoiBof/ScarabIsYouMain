@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Elements
 {
-    ImageView bestt = new ImageView("src/main/resources/img/best.gif");
+    ImageView bestt = null;
     protected String name;
     protected int posX;
     protected int posY;
