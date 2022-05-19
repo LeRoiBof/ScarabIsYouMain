@@ -1,4 +1,26 @@
 18 18
+metal 5 8
+metal 5 9
+metal 5 10
+metal 6 8
+metal 6 10
+metal 7 8
+metal 7 9
+metal 7 10
+metal 8 8
+metal 8 9
+metal 8 10
+grass 3 4
+grass 3 5
+grass 6 2
+grass 16 4
+grass 17 5
+grass 2 15
+grass 3 17
+grass 15 16
+grass 16 16
+grass 16 15
+grass 17 14
 wall 4 7
 wall 4 8
 wall 4 9

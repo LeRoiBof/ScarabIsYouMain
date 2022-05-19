@@ -1,4 +1,35 @@
 18 18
+metal 4 8
+metal 4 9
+metal 4 10
+metal 5 8
+metal 5 9
+metal 5 10
+metal 6 8
+metal 6 10
+metal 7 8
+metal 7 9
+metal 7 10
+metal 8 8
+metal 8 9
+metal 8 10
+metal 10 8
+metal 10 9
+metal 10 10
+metal 11 8
+metal 11 9
+metal 11 10
+metal 12 8
+metal 12 9
+metal 12 10
+metal 13 8
+metal 13 10
+metal 14 8
+metal 14 9
+metal 14 10
+metal 15 8
+metal 15 9
+metal 15 10
 text_wall 5 5
 is 6 5
 stop 7 5
@@ -39,7 +70,7 @@ you 7 13
 text_flag 12 13
 is 13 13
 win 14 13
-baba 5 9 3
+baba 6 9 3
 
 
 

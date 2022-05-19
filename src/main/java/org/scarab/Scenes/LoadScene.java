@@ -42,33 +42,33 @@ public class LoadScene extends MenuConstructor {
         panel.getChildren().get(0).setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneChanger.setLoadCount(0);
+                SceneChanger.changeCount(0);
                 SceneChanger.setPath("src/main/resources/maps/map");
-                SceneChanger.changeTo(SceneChanger.enumScene.LOADLEVEL);
+                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
             }
         });
         panel.getChildren().get(1).setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneChanger.setLoadCount(1);
+                SceneChanger.changeCount(1);
                 SceneChanger.setPath("src/main/resources/maps/map");
-                SceneChanger.changeTo(SceneChanger.enumScene.LOADLEVEL);
+                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
             }
         });
         panel.getChildren().get(2).setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneChanger.setLoadCount(2);
+                SceneChanger.changeCount(2);
                 SceneChanger.setPath("src/main/resources/maps/map");
-                SceneChanger.changeTo(SceneChanger.enumScene.LOADLEVEL);
+                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
             }
         });
         panel.getChildren().get(3).setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                SceneChanger.setLoadCount(3);
+                SceneChanger.changeCount(3);
                 SceneChanger.setPath("src/main/resources/maps/map");
-                SceneChanger.changeTo(SceneChanger.enumScene.LOADLEVEL);
+                SceneChanger.changeTo(SceneChanger.enumScene.GAME);
             }
         });
 
