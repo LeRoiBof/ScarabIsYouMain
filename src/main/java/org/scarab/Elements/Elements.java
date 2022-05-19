@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class Elements
 {
+    ImageView bestt = new ImageView("src/main/resources/img/best.gif");
     protected String name;
     protected int posX;
     protected int posY;
@@ -19,6 +20,8 @@ public class Elements
     protected boolean IsYou = false;
     protected boolean IsPush = false;
     protected boolean IsStop = false;
+
+    protected boolean IsBest = false;
 
     protected boolean IsHot = false;
     protected boolean IsSink = false;
@@ -117,7 +120,18 @@ public class Elements
         IsHot = Hot;
     }
 
+    public boolean getIsBest() {
+        return IsBest;
+    }
+
+    public void setBest(boolean best) {IsBest = best;}
+
     public ImageView getImageView() {return imageView;}
+    public ImageView getBestt(){return bestt;}
+
+    public void setBestt(ImageView bestt) {
+        this.bestt = bestt;
+    }
 }
 
 
