@@ -54,14 +54,14 @@ public class Rules
                              map.getGrid().removeElementAtPos(ref.getPosX(), ref.getPosY(),ref);
                             ((Group)ref.getImageView().getParent()).getChildren().remove(ref.getImageView());
                          }
+                         
                      }
-
-                 if(hot && you)
+             if(hot && you)
                  return 2;
            }
        }
-        if (!youe)
-            return 3;
+       if (!youe)
+           return 3;
        return 4;
     }
 
@@ -117,67 +117,88 @@ public class Rules
                                 for (Elements textelem : map.getAllElements())
                                     if (textelem.getName().equals(((Texts) leftelem).getRef())) {
                                         textelem.setBest(true);
+                                        System.out.println(textelem.getName());
+
                                         try {
-                                            textelem.setBestt(new ImageView(new Image(new FileInputStream("src/main/resources/img/best.gif"))));
+                                            ImageView a = new ImageView(new Image(new FileInputStream("src/main/resources/img/best.gif")));
+                                            textelem.setBestt(a);
+                                            ((Group)textelem.getImageView().getParent()).getChildren().add(a);
+                                            ((Group)textelem.getImageView().getParent()).getChildren().remove(textelem.getImageView());
+                                            a.setTranslateX(textelem.getImageView().getTranslateX());
+                                            a.setTranslateY(textelem.getImageView().getTranslateY());
                                         } catch (Exception e) {
                                         }
-                                    }
-                                    else
+                                    } else
                                         textelem.setBest(false);
 
                             }
                         }
                     }
                 }
+            }
 
-                for (Elements upelem : grid.getElementsAtPos(i.getPosX(), i.getPosY() - 1)) {
-                    if (upelem instanceof Texts) {
-                        for (Elements downelem : grid.getElementsAtPos(i.getPosX(), i.getPosY() + 1)) {
-                            if (downelem instanceof Action || downelem instanceof Texts) {
-                                if (downelem.getName().equals("you"))
-                                    for (Elements textelem : map.getAllElements())
-                                        if (textelem.getName().equals(((Texts) upelem).getRef()))
-                                            textelem.setIsYou(true);
-                                        else
-                                            textelem.setIsYou(false);
 
-                                else if (downelem.getName().equals("push")) {
-                                    for (Elements textelem : map.getAllElements())
-                                        if (textelem.getName().equals(((Texts) upelem).getRef()))
-                                            textelem.setIsPush(true);
-                                        else
-                                            textelem.setIsPush(false);
-                                } else if (downelem.getName().equals("stop")) {
-                                    for (Elements textelem : map.getAllElements())
-                                        if (textelem.getName().equals(((Texts) upelem).getRef()))
-                                            textelem.setIsStop(true);
-                                        else
-                                            textelem.setIsStop(false);
-                                } else if (downelem.getName().equals("win")) {
-                                    for (Elements textelem : map.getAllElements())
-                                        if (textelem.getName().equals(((Texts) upelem).getRef()))
-                                            textelem.setIsWin(true);
-                                        else
-                                            textelem.setIsWin(false);
-                                } else if (downelem.getName().equals("sink")) {
-                                    for (Elements textelem : map.getAllElements())
-                                        if (textelem.getName().equals(((Texts) upelem).getRef()))
-                                            textelem.setIsSink(true);
-                                        else
-                                            textelem.setIsSink(false);
-                                } else if (downelem.getName().equals("hot")) {
-                                    for (Elements textelem : map.getAllElements())
-                                        if (textelem.getName().equals(((Texts) upelem).getRef()))
-                                            textelem.setHot(true);
-                                        else
-                                            textelem.setHot(false);
-                                } else if (downelem.getName().equals("best")) {
-                                    for (Elements textelem : map.getAllElements())
-                                        if (textelem.getName().equals(((Texts) upelem).getRef()))
-                                            textelem.setBest(true);
-                                        else
-                                            textelem.setBest(false);
-                                }
+            for (Elements upelem : grid.getElementsAtPos(i.getPosX(), i.getPosY() - 1)) {
+                if (upelem instanceof Texts) {
+                    for (Elements downelem : grid.getElementsAtPos(i.getPosX(), i.getPosY() + 1)) {
+                        if (downelem instanceof Action || downelem instanceof Texts) {
+                            if (downelem.getName().equals("you"))
+                                for (Elements textelem : map.getAllElements())
+                                    if (textelem.getName().equals(((Texts) upelem).getRef()))
+                                        textelem.setIsYou(true);
+                                    else
+                                        textelem.setIsYou(false);
+
+                            else if (downelem.getName().equals("push")) {
+                                for (Elements textelem : map.getAllElements())
+                                    if (textelem.getName().equals(((Texts) upelem).getRef()))
+                                        textelem.setIsPush(true);
+                                    else
+                                        textelem.setIsPush(false);
+                            } else if (downelem.getName().equals("stop")) {
+                                for (Elements textelem : map.getAllElements())
+                                    if (textelem.getName().equals(((Texts) upelem).getRef()))
+                                        textelem.setIsStop(true);
+                                    else
+                                        textelem.setIsStop(false);
+                            } else if (downelem.getName().equals("win")) {
+                                for (Elements textelem : map.getAllElements())
+                                    if (textelem.getName().equals(((Texts) upelem).getRef()))
+                                        textelem.setIsWin(true);
+                                    else
+                                        textelem.setIsWin(false);
+                            } else if (downelem.getName().equals("sink")) {
+                                for (Elements textelem : map.getAllElements())
+                                    if (textelem.getName().equals(((Texts) upelem).getRef()))
+                                        textelem.setIsSink(true);
+                                    else
+                                        textelem.setIsSink(false);
+                            } else if (downelem.getName().equals("hot")) {
+                                for (Elements textelem : map.getAllElements())
+                                    if (textelem.getName().equals(((Texts) upelem).getRef()))
+                                        textelem.setHot(true);
+                                    else
+                                        textelem.setHot(false);
+                            } else if (downelem.getName().equals("best")) {
+                                for (Elements textelem : map.getAllElements())
+                                    if (textelem.getName().equals(((Texts) upelem).getRef())) {
+                                        textelem.setBest(true);
+                                        System.out.println(textelem.getName());
+
+                                        try {
+                                            ImageView a = new ImageView(new Image(new FileInputStream("src/main/resources/img/best.gif")));
+                                            textelem.setBestt(a);
+                                            ((Group)textelem.getImageView().getParent()).getChildren().add(a);
+                                            ((Group)textelem.getImageView().getParent()).getChildren().remove(textelem.getImageView());
+
+                                            a.setTranslateX(textelem.getImageView().getTranslateX());
+                                            a.setTranslateY(textelem.getImageView().getTranslateY());
+
+                                            } catch (Exception e) {
+                                        }
+                                    } else
+                                        textelem.setBest(false);
+
                             }
                         }
                     }
@@ -185,5 +206,7 @@ public class Rules
             }
         }
     }
-
 }
+
+
+

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Elements
 {
-    ImageView bestt = new ImageView("src/main/resources/img/best.gif");
+    protected ImageView bestt = null;
     protected String name;
     protected int posX;
     protected int posY;
@@ -127,6 +127,11 @@ public class Elements
     public void setBest(boolean best) {IsBest = best;}
 
     public ImageView getImageView() {return imageView;}
+
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
+    }
+
     public ImageView getBestt(){return bestt;}
 
     public void setBestt(ImageView bestt) {
