@@ -18,7 +18,7 @@ public class Rules
                boolean you = false;
              for(Elements e : map.getGrid().getElementsAtPos(i,j))
              {
-                 if(e.getIsWin())
+                if(e.getIsWin())
                      win = true;
                 if(e.getIsSink())
                      sink = true;
@@ -100,6 +100,14 @@ public class Rules
                                    else
                                        textelem.setIsSink(false);
                            }
+                           else if (rightelem.getName().equals("hot"))
+                           {
+                               for (Elements textelem : map.getAllElements())
+                                   if(textelem.getName().equals(((Texts)leftelem).getRef()))
+                                       textelem.setHot(true);
+                                   else
+                                       textelem.setHot(false);
+                           }
 
                        }
                    }
@@ -144,6 +152,22 @@ public class Rules
                                         textelem.setIsWin(true);
                                     else
                                         textelem.setIsWin(false);
+                            }
+                            else if (downelem.getName().equals("sink"))
+                            {
+                                for (Elements textelem : map.getAllElements())
+                                    if(textelem.getName().equals(((Texts)upelem).getRef()))
+                                        textelem.setIsSink(true);
+                                    else
+                                        textelem.setIsSink(false);
+                            }
+                            else if (downelem.getName().equals("hot"))
+                            {
+                                for (Elements textelem : map.getAllElements())
+                                    if(textelem.getName().equals(((Texts)upelem).getRef()))
+                                        textelem.setHot(true);
+                                    else
+                                        textelem.setHot(false);
                             }
                         }
                     }

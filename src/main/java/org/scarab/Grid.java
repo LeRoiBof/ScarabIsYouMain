@@ -19,10 +19,10 @@ public class Grid
     private final int height;
 
     /**
-     * methode qui creer la grille
-     * @param width
-     * @param height
-     * @param map
+     * methode qui creer la grille et qui creer les bordure de la map
+     * @param width largeur de la map
+     * @param height hauteur de la map
+     * @param map la map
      */
     public Grid(int width, int height, Map map)
     {
@@ -60,7 +60,13 @@ public class Grid
         }
 
     }
-    
+
+    /**
+     * methode qui ajoute les elements a la grille a une position donner et si l'elements est un Is il le stock dans un tableau dans arrayIs
+     * @param x abcisse
+     * @param y ordonnée
+     * @param elem l'elements ajouter
+     */
     public void addElementAtPos(int x, int y, Elements elem)
     {
         if (y > 0 && x > 0 && x < width && y < height)
@@ -70,28 +76,57 @@ public class Grid
 
     }
 
+    /**
+     * methode qui sert a récuperer la position d'un elements donner
+     * @param x abscisse
+     * @param y ordonnée
+     * @return return les position x et y de l'elements
+     */
     public ArrayList<Elements> getElementsAtPos(int x, int y)
     {
         if (y > 0 && x > 0 && x < width && y < height);
         return Grid.get(x).get(y);
     }
 
+    /**
+     * methode qui sert a supprimer l'élements a la position donner
+     * @param x abscisse
+     * @param y ordonnée
+     * @param elem elements
+     */
     public void removeElementAtPos(int x, int y, Elements elem)
     {
         if (x < width - 1 && y < height - 1)
             Grid.get(x).get(y).remove(elem);
     }
 
+    /**
+     * sert a récuperer la grille dans d'autre classe
+     * @return la grille
+     */
     public ArrayList<ArrayList<ArrayList<Elements>>> getGrid()
     {
         return Grid;
     }
+
+    /**
+     *
+     * @return le tableau de Is
+     */
     public ArrayList<Elements> getArrayIs() {return arrayIs;}
 
+    /**
+     *
+     * @return la hauteur
+     */
     public int getHeight() {
         return height;
     }
 
+    /**
+     *
+     * @return la largeur
+     */
     public int getWidth() {
         return width;
     }

@@ -17,6 +17,10 @@ public class Map
 
     private static ArrayList<Elements> AllElements = new ArrayList<Elements>();
 
+    /**
+     * methode qui les fichier map.txt a fin de pouvoir stocker les donnée dans un tableau qui contients tous les élements de la map
+     * @param path chemin de la map
+     */
     public Map(String path)
     {
 
@@ -41,7 +45,7 @@ public class Map
                     element = new Texts(obj[0], Integer.parseInt(obj[1]), Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
                 } else if (obj[0].equals("rock") || obj[0].equals("wall") || obj[0].equals("lava") || obj[0].equals("water") || obj[0].equals("baba") || obj[0].equals("flag") || obj[0].equals("skull") || obj[0].equals("grass") || obj[0].equals("metal")) {
                     element = new Material(obj[0], Integer.parseInt(obj[1]), Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
-                } else if (obj[0].equals("you") || obj[0].equals("win") || obj[0].equals("stop") || obj[0].equals("push") || obj[0].equals("hot")) {
+                } else if (obj[0].equals("you") || obj[0].equals("win") || obj[0].equals("stop") || obj[0].equals("push") || obj[0].equals("hot") || obj[0].equals("sink")) {
                     element = new Action(obj[0], Integer.parseInt(obj[1]), Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
                 }
                 if (element != null) {
