@@ -32,36 +32,5 @@ public class ElementsTest
 
     }
 
-    @Test
-    void testRules(){
-        Map map = new Map("src/main/resources/maps/map0.txt");
-        Elements baba = map.getGrid().getElementsAtPos(6,9).get(0);
-        Elements isstop = map.getGrid().getElementsAtPos(5,7).get(0);
-
-        boolean x = isstop.getIsStop();
-
-        Rules.updaterules(map);
-
-        baba.move(KeyCode.LEFT, map.getGrid());
-        baba.move(KeyCode.LEFT, map.getGrid());
-        baba.move(KeyCode.LEFT, map.getGrid());
-        baba.move(KeyCode.UP, map.getGrid());
-        baba.move(KeyCode.UP, map.getGrid());
-        baba.move(KeyCode.UP, map.getGrid());
-        baba.move(KeyCode.RIGHT, map.getGrid());
-        baba.move(KeyCode.RIGHT, map.getGrid());
-        baba.move(KeyCode.UP, map.getGrid());
-        baba.move(KeyCode.UP, map.getGrid());
-        baba.move(KeyCode.DOWN, map.getGrid());
-        baba.move(KeyCode.DOWN, map.getGrid());
-        baba.move(KeyCode.DOWN, map.getGrid());
-        Rules.updaterules(map);
-
-
-
-        assertTrue(!isstop.getIsStop());
-
-
-    }
 
 }

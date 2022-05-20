@@ -20,10 +20,6 @@ public class StackPause extends BorderPane {
     private final CustomButton quit = new CustomButton("QUIT");
     private final CustomButton reload = new CustomButton("RELOAD");
     private final CustomButton continu = new CustomButton("CONTINUE");
-
-    /**
-     * Constructeur qui crée une nouvelle scène qui sera superposée à une autre
-     */
     public StackPause(){
         this.setHeight(800);
         this.setWidth(800);
@@ -37,20 +33,12 @@ public class StackPause extends BorderPane {
         this.setCenter(panel);
 
         quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            /**
-             * @param event Event de click sur le bouton
-             *              Méthode qui ferme la fenêtre
-             */
             @Override
             public void handle(MouseEvent event) {
                 Main.primaryStage.close();
             }
         });
         save.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            /**
-             * @param event Event de click sur le bouton
-             *              Méthode qui sauvegarde la partie et revient au menu. Les mouvements sont rétablis
-             */
             @Override
             public void handle(MouseEvent event) {
                 Map.save();
@@ -60,10 +48,6 @@ public class StackPause extends BorderPane {
             }
         });
         continu.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            /**
-             * @param event Event de click sur le bouton
-             *              Méthode qui ferme la scène de pause et relance le jeu. Les mouvements sont rétablis
-             */
             @Override
             public void handle(MouseEvent event) {
                 GameScene.removePause();
@@ -71,10 +55,6 @@ public class StackPause extends BorderPane {
             }
         });
         reload.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            /**
-             * @param event Event de click de souris
-             *              Methode permettant de recommencer un niveau. Les mouvements sont rétablis
-             */
             @Override
             public void handle(MouseEvent event) {
                 Map.clearElements();

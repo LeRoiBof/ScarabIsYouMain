@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class Map
 {
+
     private static int map_width;
     private static int map_height;
 
@@ -18,7 +19,7 @@ public class Map
     private static ArrayList<Elements> AllElements = new ArrayList<Elements>();
 
     /**
-     * methode qui les fichier map.txt a fin de pouvoir stocker les donnée dans un tableau qui contients tous les élements de la map
+     * methode qui lis les fichiers map.txt a fin de pouvoir stocker les donnée dans un tableau qui contients tous les élements de la map
      * @param path chemin de la map
      */
     public Map(String path)
@@ -28,7 +29,9 @@ public class Map
         {
             File MyMap = new File(path);                   // lecture du fichier map
             Scanner Lecture = new Scanner(MyMap);
-            String FirstLine = Lecture.nextLine();                       //lis la premiere ligne qui est la taille de la map
+            if(!Lecture.hasNextLine())
+                return;
+            String FirstLine = Lecture.nextLine();
             String[] superficieMap = FirstLine.split(" ");
             map_width = Integer.parseInt(superficieMap[0]) + 2;
             map_height = Integer.parseInt(superficieMap[1]) + 2;
@@ -38,6 +41,11 @@ public class Map
                 String data = Lecture.nextLine();                         // lecture des elements ligne par ligne
                 String[] obj = data.split(" ");
                 Elements element = null;
+                if(obj.length > 2 && (Integer.parseInt(obj[1]) > map_width || Integer.parseInt(obj[2]) > map_height)) {
+                    grid = null;
+                    return;
+                }
+
                 if (obj[0].equals("is")) {
                     element = new Is(obj[0], Integer.parseInt(obj[1]), Integer.parseInt(obj[2]), obj.length > 3 ? Integer.parseInt(obj[3]) : 0);
 
@@ -61,6 +69,10 @@ public class Map
         }
 
     }
+
+    /**
+     *  methode save qui sert a sauvegarder la map a n'importe quel moment voulu en créeant un nouveau fichier txt
+     */
     public static void save()
     {
         try {
@@ -83,17 +95,37 @@ public class Map
             e.printStackTrace();
         }
     }
+
+
     public static void clearElements(){
         AllElements.clear();
     }
 
+
+    /**
+     *
+     * @return la hauteur de la map
+     */
     public int getMap_height() {return map_height;}
+
+    /**
+     *
+     * @return la largeur de la map
+     */
     public int getMap_width(){return map_width;}
 
-
+    /**
+     *
+     * @return tous les elements de la map stocker dans un ArrayList
+     */
     public static ArrayList<Elements> getAllElements() {
         return AllElements;
     }
+
+    /**
+     *
+     * @return la grille
+     */
 
     public Grid getGrid() {
         return grid;

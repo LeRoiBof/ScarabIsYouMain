@@ -10,6 +10,11 @@ import java.io.FileInputStream;
 
 public class Rules
 {
+    /**
+     * methode qui regarde si on gagne ou on perd
+     * @param map
+     * @return 0 si on gagne ou alors
+     */
     public static int check(Map map)
     {
         boolean youe = false;
@@ -38,20 +43,25 @@ public class Rules
                          try {
                              ImageView a = new ImageView(new Image(new FileInputStream("src/main/resources/img/best.gif")));
                              e.setBestt(a);
-                             ((Group)e.getImageView().getParent()).getChildren().add(a);
+                             ((Group) e.getImageView().getParent()).getChildren().add(a);
                              a.setTranslateX(e.getImageView().getTranslateX());
                              a.setTranslateY(e.getImageView().getTranslateY());
                          } catch (Exception ex) {
                          }
 
                      }
-                 } else {
-                     ImageView tmp = e.getBestt();
+                 }
+                     else if(!e.getIsBest())
+                     {
+                         System.out.println("sjlfkek");
 
-                     if (tmp != null) {
-                         ((Group)tmp.getParent()).getChildren().remove(tmp);
-                         e.setBestt(null);
-                     }
+                         ImageView tmp = e.getBestt();
+
+                         if (tmp != null) {
+                             ((Group)tmp.getParent()).getChildren().remove(tmp);
+                             e.setBestt(null);
+                        }
+
                  }
              }
              if (win && you)
@@ -62,6 +72,7 @@ public class Rules
                    for(Elements del : map.getGrid().getElementsAtPos(i,j))
                      if(del.getIsSink()) {
                        map.getGrid().removeElementAtPos(del.getPosX(), del.getPosY(),del);
+                         map.getAllElements().remove(del);
                        Elements ref = map.getGrid().getElementsAtPos(del.getPosX(), del.getPosY()).get(0);
                        if (!(ref instanceof  Material)) {
                            map.getGrid().addElementAtPos(del.getPosX(), del.getPosY(),del);
@@ -70,12 +81,12 @@ public class Rules
                          ((Group)del.getImageView().getParent()).getChildren().remove(del.getImageView());
                          if(ref instanceof Material) {
                              map.getGrid().removeElementAtPos(ref.getPosX(), ref.getPosY(),ref);
+                             map.getAllElements().remove(ref);
+
                             ((Group)ref.getImageView().getParent()).getChildren().remove(ref.getImageView());
                          }
 
                      }
-             if(hot && you)
-                 return 2;
            }
        }
        if (!youe)
@@ -83,6 +94,10 @@ public class Rules
        return 4;
     }
 
+    /**
+     * methode qui verifie a chaque deplacement si les condition sont respecter pour que les regles soit appliquer
+     * @param map
+     */
 
     public static void updaterules(Map map) {
         Grid grid = map.getGrid();

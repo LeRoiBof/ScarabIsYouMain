@@ -31,6 +31,14 @@ public class Elements
     protected ImageView imageView;
     private static boolean canMove = true;
 
+    /**
+     *
+     * @param name
+     * @param posX
+     * @param posY
+     * @param direction
+     * @throws FileNotFoundException
+     */
     public Elements(String name, int posX, int posY,int direction) throws FileNotFoundException
     {
         this.name = name;
@@ -40,15 +48,16 @@ public class Elements
         this.imageView = new ImageView(new Image(new FileInputStream("src/main/resources/img/" + this.name +".png")));
     }
 
-    /**
-     * @param canMove_ Prends en paramètre un booléen
-     *                 Méthode permettant de changer la valeur de la condition de déplacement
-     */
     public static void changeMove(boolean canMove_){
         canMove = canMove_;
     }
 
-
+    /**
+     * methode qui sert a deplacer un ou plusieurs Elements dans la grille et dans la map.
+     * @param key la touche
+     * @param grid la grille
+     * @return vrai ou faux
+     */
     public boolean move(KeyCode key, Grid grid)
     {
         if (canMove) {
@@ -95,48 +104,155 @@ public class Elements
     }
 
 
+    /**
+     *
+     * @return le nom
+     */
     public String getName(){return name;}
+
+    /**
+     *
+     * @return la position x
+     */
     public int getPosX(){return posX;}
+
+    /**
+     *
+     * @return la position y
+     */
     public int getPosY(){return posY;}
+
+    /**
+     *
+     * @return la direction
+     */
     public int getDirection(){return direction;}
 
+    /**
+     *
+     * @return si l'elements est Isyou
+     */
+
     public boolean getIsYou(){return IsYou; }
+
+    /**
+     *
+     * @param you
+     */
     public void setIsYou(boolean you) {IsYou = you;}
 
+    /**
+     *
+     * @return si l'elements est Ispush
+     */
+
     public boolean getIsPush() {return IsPush;}
+
+    /**
+     *
+     * @param push
+     */
     public void setIsPush(boolean push){IsPush = push;}
+
+    /**
+     *
+     * @return si l'elements est IsStop
+     */
     public boolean getIsStop() {return IsStop;}
+
+    /**
+     *
+     * @param stop
+     */
     public void setIsStop(boolean stop) {IsStop = stop;}
+
+    /**
+     *
+     * @return  si l'elements est IsWin
+     */
 
     public boolean getIsWin() {return Win;}
 
+    /**
+     *
+     * @param win
+     */
     public void setIsWin(boolean win) {Win = win;}
+
+    /**
+     *
+     * @return si l'elements est IsSink
+     */
 
     public boolean getIsSink() {return IsSink;}
 
+    /**
+     *
+     * @param sink
+     */
+
     public void setIsSink(boolean sink) {this.IsSink = sink;}
+
+    /**
+     *
+     * @return si l'elements est est IsHot
+     */
 
     public boolean getIsHot() {
         return IsHot;
     }
 
+    /**
+     *
+     * @param Hot
+     */
+
     public void setHot(boolean Hot) {
         IsHot = Hot;
     }
 
+    /**
+     *
+     * @return si l'elements est Isbest
+     */
     public boolean getIsBest() {
         return IsBest;
     }
 
+    /**
+     *
+     * @param best
+     */
+
     public void setBest(boolean best) {IsBest = best;}
 
+    /**
+     *
+     * @return l'image de l'Elements
+     */
+
     public ImageView getImageView() {return imageView;}
+
+    /**
+     *
+     * @param imageView
+     */
 
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
     }
 
+    /**
+     *
+     * @return l'image de best
+     */
+
     public ImageView getBestt(){return bestt;}
+
+    /**
+     *
+     * @param bestt
+     */
 
     public void setBestt(ImageView bestt) {
         this.bestt = bestt;

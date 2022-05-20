@@ -23,19 +23,9 @@ public class Main extends Application {
     static SettingsScene settingsScene = new SettingsScene();
     static LoadScene loadScene = new LoadScene();
 
-    /**
-     * @param args Arguments servant à générer l'application
-     *             Méthode de démarrage de l'application
-     */
     public static void main(String[] args) {
         launch(args);
     }
-
-    /**
-     * @param _primaryStage Prends en paramètre une fenêtre
-     * @throws Exception Renvoie une exception à cause du FileIntputStream si le fichier est introuvable
-     * Méthode de démarrage de l'application
-     */
     @Override
     public void start(Stage _primaryStage) throws Exception {
         //Stage init

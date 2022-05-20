@@ -23,10 +23,6 @@ import java.util.Random;
     private static int count = 0;
     private final VBox panel = new VBox();
     private final Random random = new Random();
-
-     /**
-      * Constructeur du menu paramètres.
-      */
     public SettingsScene(){
         super(root);
         panel.setSpacing(10);
@@ -34,10 +30,6 @@ import java.util.Random;
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            /**
-             * @param event Event de click sur le bouton
-             *              Méthode permettant de revenir au menu principal
-             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.MENU);
@@ -45,10 +37,6 @@ import java.util.Random;
         });
 
         changeMusic.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            /**
-             * @param event Event de click de souris
-             *              Méthode permettant de choisir une musique au hasard en générant un nombre random entre 0 et 5
-             */
             @Override
             public void handle(MouseEvent event) {
                 Random random = new Random();
@@ -83,10 +71,6 @@ import java.util.Random;
             }
         });
         stopMusic.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            /**
-             * @param event Event de click de souris
-             *              Méthode permettant d'arrêter la musique et de changer le bouton en fonction de la situation
-             */
             @Override
             public void handle(MouseEvent event) {
                 if (count == 0) {
