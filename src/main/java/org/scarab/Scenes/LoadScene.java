@@ -1,13 +1,11 @@
 package org.scarab.Scenes;
 
-import javafx.application.Preloader;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import org.scarab.CustomButton;
-import org.scarab.Map;
 import org.scarab.MenuConstructor;
 import org.scarab.SceneChanger;
 
@@ -18,6 +16,10 @@ public class LoadScene extends MenuConstructor {
     private static final BorderPane root = new BorderPane();
     private final CustomButton back = new CustomButton("BACK");
     private final HBox panel = new HBox();
+
+    /**
+     * Constructeur du menu de chargement des niveaux
+     */
     public LoadScene(){
         super(root);
         int fileCount = Objects.requireNonNull(new File("src/main/resources/maps").list()).length;
@@ -34,12 +36,20 @@ public class LoadScene extends MenuConstructor {
         root.setBottom(back);
 
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de revenir au menu principal
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.MENU);
             }
         });
         panel.getChildren().get(0).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de lancer le niveau correspondant
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeCount(0);
@@ -48,6 +58,10 @@ public class LoadScene extends MenuConstructor {
             }
         });
         panel.getChildren().get(1).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de lancer le niveau correspondant
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeCount(1);
@@ -56,6 +70,10 @@ public class LoadScene extends MenuConstructor {
             }
         });
         panel.getChildren().get(2).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de lancer le niveau correspondant
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeCount(2);
@@ -64,6 +82,10 @@ public class LoadScene extends MenuConstructor {
             }
         });
         panel.getChildren().get(3).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de lancer le niveau correspondant
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeCount(3);

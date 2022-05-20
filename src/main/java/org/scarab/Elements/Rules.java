@@ -11,9 +11,9 @@ import java.io.FileInputStream;
 public class Rules
 {
     /**
-     * methode qui regarde si on gagne ou on perd
-     * @param map
-     * @return 0 si on gagne ou alors
+     * Méthode vérifiant les les règles pour les conditions de victoire ou de défaite
+     * @param map La map du niveau
+     * @return 0 si la partie est gagnée, dans les autres cas la partie continue
      */
     public static int check(Map map)
     {
@@ -47,13 +47,13 @@ public class Rules
                              a.setTranslateX(e.getImageView().getTranslateX());
                              a.setTranslateY(e.getImageView().getTranslateY());
                          } catch (Exception ex) {
+                             ex.printStackTrace();
                          }
 
                      }
                  }
                      else if(!e.getIsBest())
                      {
-                         System.out.println("sjlfkek");
 
                          ImageView tmp = e.getBestt();
 
@@ -95,8 +95,8 @@ public class Rules
     }
 
     /**
-     * methode qui verifie a chaque deplacement si les condition sont respecter pour que les regles soit appliquer
-     * @param map
+     * Méthode parcourant la map pour vérifier les conditions et les règles associées aux éléments
+     * @param map La map du niveau
      */
 
     public static void updaterules(Map map) {

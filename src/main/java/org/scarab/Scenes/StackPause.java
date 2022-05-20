@@ -4,7 +4,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -20,6 +19,10 @@ public class StackPause extends BorderPane {
     private final CustomButton quit = new CustomButton("QUIT");
     private final CustomButton reload = new CustomButton("RELOAD");
     private final CustomButton continu = new CustomButton("CONTINUE");
+
+    /**
+     * Constructeur du menu pause
+     */
     public StackPause(){
         this.setHeight(800);
         this.setWidth(800);
@@ -33,12 +36,20 @@ public class StackPause extends BorderPane {
         this.setCenter(panel);
 
         quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de quitter le jeu
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 Main.primaryStage.close();
             }
         });
         save.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de sauvegarde l'état du niveau actuel
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 Map.save();
@@ -48,6 +59,10 @@ public class StackPause extends BorderPane {
             }
         });
         continu.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de fermer le menu pause
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 GameScene.removePause();
@@ -55,6 +70,10 @@ public class StackPause extends BorderPane {
             }
         });
         reload.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de relancer un niveau
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 Map.clearElements();

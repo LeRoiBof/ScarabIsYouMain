@@ -4,14 +4,10 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import org.scarab.CustomButton;
 import org.scarab.MenuConstructor;
 import org.scarab.SceneChanger;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Random;
 
 
@@ -22,7 +18,10 @@ import java.util.Random;
     private final CustomButton stopMusic = new CustomButton("STOP MUSIC");
     private static int count = 0;
     private final VBox panel = new VBox();
-    private final Random random = new Random();
+
+     /**
+      * Constructeur du menu des paramètres
+      */
     public SettingsScene(){
         super(root);
         panel.setSpacing(10);
@@ -30,6 +29,10 @@ import java.util.Random;
         panel.setAlignment(Pos.TOP_CENTER);
         root.setCenter(panel);
         back.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de revenir au menu principal
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.MENU);
@@ -37,6 +40,10 @@ import java.util.Random;
         });
 
         changeMusic.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de changer la musique. Un chiffe aléatoire est généré pour le changement
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 Random random = new Random();
@@ -71,6 +78,10 @@ import java.util.Random;
             }
         });
         stopMusic.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant d'arrêter ou de reprendre la musique.
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 if (count == 0) {

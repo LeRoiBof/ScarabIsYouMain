@@ -1,17 +1,16 @@
 package org.scarab.Elements;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Is extends Elements
 {
     /**
-     *
-     * @param name
-     * @param posX
-     * @param posY
-     * @param direction
-     * @throws FileNotFoundException
+     * Contructeur des éléments de connexion tels que IS
+     * @param name Le nom de l'élément
+     * @param posX La position X de l'élément
+     * @param posY La position Y de l'élément
+     * @param direction La direction de l'élément
+     * @throws FileNotFoundException Renvoie un exception si l'élément est introuvable
      */
     public Is(String name, int posX, int posY,int direction) throws FileNotFoundException
     {

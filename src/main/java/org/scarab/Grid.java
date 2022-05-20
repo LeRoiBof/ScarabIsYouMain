@@ -7,9 +7,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
-/**
- * Classe qui definie la grille qui a pour but
- */
 public class Grid
 {
     private ArrayList<ArrayList<ArrayList<Elements>>> Grid = new ArrayList<ArrayList<ArrayList<Elements>>>();
@@ -19,7 +16,7 @@ public class Grid
     private final int height;
 
     /**
-     * methode qui creer la grille et qui creer les bordure de la map
+     * Méthode qui crée la grille de jeu
      * @param width largeur de la map
      * @param height hauteur de la map
      * @param map la map
@@ -62,10 +59,11 @@ public class Grid
     }
 
     /**
-     * methode qui ajoute les elements a la grille a une position donner et si l'elements est un Is il le stock dans un tableau dans arrayIs
-     * @param x abcisse
-     * @param y ordonnée
-     * @param elem l'elements ajouter
+     * Méthode qui ajoute les éléments à une position donnée
+     * Si l'élément est un "IS" l'élément est ajouté dans un tableau dynamique ArrayIs
+     * @param x Position X dans la grille
+     * @param y Position Y dans la grille
+     * @param elem L'élement à ajouter
      */
     public void addElementAtPos(int x, int y, Elements elem)
     {
@@ -77,10 +75,10 @@ public class Grid
     }
 
     /**
-     * methode qui sert a récuperer la position d'un elements donner
-     * @param x abscisse
-     * @param y ordonnée
-     * @return return les position x et y de l'elements
+     * Méthode permettant de récupérer la position d'un élément à une position
+     * @param x Position X dans la grille
+     * @param y Position Y dans la grille
+     * @return Renvoie un tableau comprenant les positions des éléments
      */
     public ArrayList<Elements> getElementsAtPos(int x, int y)
     {
@@ -89,10 +87,10 @@ public class Grid
     }
 
     /**
-     * methode qui sert a supprimer l'élements a la position donner
-     * @param x abscisse
-     * @param y ordonnée
-     * @param elem elements
+     * Méthode permettant de supprimer un élément à une position
+     * @param x Position X dans la grille
+     * @param y Position Y dans la grille
+     * @param elem L'élement à supprimer
      */
     public void removeElementAtPos(int x, int y, Elements elem)
     {
@@ -101,7 +99,7 @@ public class Grid
     }
 
     /**
-     * sert a récuperer la grille dans d'autre classe
+     * Méthode renvoyant la grille du jeu
      * @return la grille
      */
     public ArrayList<ArrayList<ArrayList<Elements>>> getGrid()
@@ -110,13 +108,13 @@ public class Grid
     }
 
     /**
-     *
+     * Méthode renvoyant le tableau dynamique ArrayIs
      * @return le tableau de Is
      */
     public ArrayList<Elements> getArrayIs() {return arrayIs;}
 
     /**
-     *
+     * Méthode renvoyant la hauteur de la grille
      * @return la hauteur
      */
     public int getHeight() {
@@ -124,7 +122,7 @@ public class Grid
     }
 
     /**
-     *
+     * Méthode renvoyant la largeur de la grille
      * @return la largeur
      */
     public int getWidth() {

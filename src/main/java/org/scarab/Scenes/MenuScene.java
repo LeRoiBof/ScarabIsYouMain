@@ -2,21 +2,9 @@ package org.scarab.Scenes;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.geometry.Side;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import org.scarab.*;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.security.spec.ECField;
-import java.util.Objects;
 
 public class MenuScene extends MenuConstructor {
     private final static BorderPane root = new BorderPane();
@@ -26,7 +14,10 @@ public class MenuScene extends MenuConstructor {
     private final CustomButton settings = new CustomButton("SETTINGS");
     private final CustomButton continu = new CustomButton("CONTINUE");
     private final CustomButton load = new CustomButton("LOAD LEVEL");
-    private final int fileCount = Objects.requireNonNull(new File("src/main/resources/save").list()).length;
+
+    /**
+     * Constructeur du menu principal
+     */
     public MenuScene() {
         super(root);
         /// Button settings
@@ -37,18 +28,30 @@ public class MenuScene extends MenuConstructor {
 
         //Event handler
         quit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de quitter le jeu
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 Main.primaryStage.close();
             }
         });
         settings.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant d'aller au menu des paramètres
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.SETTINGS);
             }
         });
         play.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant de commencer le jeu. Le bouton est changé après le premier click
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 panel.getChildren().add(1,continu);
@@ -59,12 +62,19 @@ public class MenuScene extends MenuConstructor {
             }
         });
         load.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /**
+             * Méthode permettant d'aller vers le menu de chargement
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                 SceneChanger.changeTo(SceneChanger.enumScene.LOAD);
             }
         });
         continu.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            /** Méthode permettant de lancer la dernière sauvegarde du jeu
+             * @param event Evènement de la souris
+             */
             @Override
             public void handle(MouseEvent event) {
                     SceneChanger.setPath("src/main/resources/save/save");

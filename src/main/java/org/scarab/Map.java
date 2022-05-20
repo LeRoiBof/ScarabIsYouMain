@@ -19,8 +19,8 @@ public class Map
     private static ArrayList<Elements> AllElements = new ArrayList<Elements>();
 
     /**
-     * methode qui lis les fichiers map.txt a fin de pouvoir stocker les donnée dans un tableau qui contients tous les élements de la map
-     * @param path chemin de la map
+     * Méthode qui permet de lire un fichier .txt pour générer les éléments de la map dans un tableau
+     * @param path Chemin d'accès
      */
     public Map(String path)
     {
@@ -71,7 +71,7 @@ public class Map
     }
 
     /**
-     *  methode save qui sert a sauvegarder la map a n'importe quel moment voulu en créeant un nouveau fichier txt
+     *  Méthode de sauvegarde d'un niveau. Ecrit la position de chaque élément conformément à la typologie dans un fichier .txt
      */
     public static void save()
     {
@@ -97,33 +97,36 @@ public class Map
     }
 
 
+    /**
+     * Méthode permettant de supprimer tous les éléments d'un tableau (de la map)
+     */
     public static void clearElements(){
         AllElements.clear();
     }
 
 
     /**
-     *
-     * @return la hauteur de la map
+     * Méthode renvoyant la hauteur de la map
+     * @return l'entier hauteur
      */
     public int getMap_height() {return map_height;}
 
     /**
-     *
-     * @return la largeur de la map
+     * Méthode renvoyant la largeur de la map
+     * @return l'entier largeur
      */
     public int getMap_width(){return map_width;}
 
     /**
-     *
-     * @return tous les elements de la map stocker dans un ArrayList
+     * Méthode renvoyant tous les éléments de la map
+     * @return un tableau d'éléments
      */
     public static ArrayList<Elements> getAllElements() {
         return AllElements;
     }
 
     /**
-     *
+     * Méthode renvoyant la grille du jeu
      * @return la grille
      */
 

@@ -2,7 +2,6 @@ package org.scarab.Scenes;
 
 
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
@@ -13,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 
 import javafx.event.EventHandler;
-import org.scarab.Main;
 import org.scarab.Map;
 import org.scarab.SceneChanger;
 
@@ -23,6 +21,10 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
     static Group test;
     private final static StackPause stackPause = new StackPause();
 
+    /**
+     * Constructeur des niveaux
+     * @param path_ Le chemin d'accès vers la map
+     */
     public GameScene(String path_) {
         super(new BorderPane(), 800, 800);
         root = (BorderPane) super.getRoot();
@@ -39,10 +41,17 @@ public class GameScene extends Scene implements EventHandler<KeyEvent> {
         setFill(Color.BLACK);
     }
 
+    /**
+     * Méthode permettant de sortir du menu pause
+     */
     public static void removePause(){
         root.getChildren().remove(stackPause);
     }
 
+    /**
+     * Méthode permettant de gérer les différents event liés à l'appui de touches du clavier
+     * @param event Action d'appui sur une touche du clavier
+     */
     @Override
     public void handle(KeyEvent event)
     {

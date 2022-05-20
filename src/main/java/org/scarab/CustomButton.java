@@ -11,6 +11,11 @@ import javafx.scene.text.FontWeight;
 
 public class CustomButton extends Button {
         private final Font titleFont = Font.font("Lucida Sans Unicode", FontWeight.BOLD,25);
+
+        /**
+         * Constructeur de boutons personnalisés
+         * @param name Nom du bouton
+         */
         public CustomButton (String name){
         super(name);
         setFont(titleFont);
@@ -20,12 +25,20 @@ public class CustomButton extends Button {
         setStyle("-fx-background-color: #0D0D0E; ");
         setOpacity(0.7);
         setOnMouseEntered(new EventHandler<MouseEvent>() {
+                /**
+                 * Méthode permettant d'obscursir un bouton
+                 * @param event Evènement de la souris
+                 */
                 @Override
                 public void handle(MouseEvent event) {
                         setOpacity(0.9);
                 }
         });
         setOnMouseExited(new EventHandler<MouseEvent>() {
+                /**
+                 * Méthode permettant d'éclaircir un bouton
+                 * @param event Evènement de la souris
+                 */
                 @Override
                 public void handle(MouseEvent event) {
                         setOpacity(0.7);

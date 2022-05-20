@@ -1,7 +1,6 @@
 package org.scarab;
 
 import javafx.geometry.Pos;
-import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,7 +8,6 @@ import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.scene.text.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +17,11 @@ public class MenuConstructor extends Scene {
     private String path = "src/main/resources/music/menu1.mp3";
     private static MediaPlayer menuMedia = null;
     private static Media temp;
+
+    /**
+     * Constructeur de toutes les scènes de menu
+     * @param root Le paramètre de scène
+     */
     public MenuConstructor(BorderPane root){
         super(root,1280,720);
         changeMusic(path);
@@ -53,6 +56,11 @@ public class MenuConstructor extends Scene {
         BorderPane.setAlignment(creditsView,Pos.CENTER);
         root.setBottom(creditsView);
     }
+
+    /**
+     * Méthode permettant de changer la musique en cours
+     * @param path Chemin d'accès
+     */
     public static void changeMusic(String path){
         if (menuMedia != null){
             menuMedia.stop();
@@ -63,10 +71,18 @@ public class MenuConstructor extends Scene {
         menuMedia.setCycleCount(MediaPlayer.INDEFINITE);
         menuMedia.setVolume(0.1);
     }
+
+    /**
+     * Méthode permettant d'arrêter la musique en cours
+     */
     public static void stopMusic(){
         temp = menuMedia.getMedia();
         menuMedia.stop();
     }
+
+    /**
+     * Méthode permettant de relancer la musique précédement arrêtée
+     */
     public static void replayMusic(){
         menuMedia = new MediaPlayer(temp);
         menuMedia.setAutoPlay(true);

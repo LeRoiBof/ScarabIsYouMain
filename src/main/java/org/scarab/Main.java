@@ -23,9 +23,19 @@ public class Main extends Application {
     static SettingsScene settingsScene = new SettingsScene();
     static LoadScene loadScene = new LoadScene();
 
+    /**
+     * Méthode main de lancement lié à JavaFX
+     * @param args Arguments de lancement
+     */
     public static void main(String[] args) {
         launch(args);
     }
+
+    /**
+     * Méthode de lancement de l'application
+     * @param _primaryStage Fenêtre d'affichage de l'application
+     * @throws Exception Renvoie un exception si le chemin d'accès est introuvable
+     */
     @Override
     public void start(Stage _primaryStage) throws Exception {
         //Stage init
